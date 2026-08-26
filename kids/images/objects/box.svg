@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="100%" stop-color="#FEF3C7" />
+    </linearGradient>
+    <radialGradient id="glow_box" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_box" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_box" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_box)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_box)" />
+
+    <g filter="url(#shadow_box)">
+      <rect x="150" y="210" width="212" height="150" rx="16" fill="#B45309" />
+      <polygon points="130,210 256,150 382,210 256,230" fill="#D97706" />
+    </g>
+  </svg>

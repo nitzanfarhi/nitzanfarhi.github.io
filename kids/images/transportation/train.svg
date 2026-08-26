@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_train" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5" />
+      <stop offset="100%" stop-color="#D1FAE5" />
+    </linearGradient>
+    <radialGradient id="glow_train" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_train" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_train" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_train)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_train)" />
+
+    <g filter="url(#shadow_train)">
+      <rect x="120" y="170" width="120" height="130" rx="16" fill="#059669" />
+      <rect x="230" y="200" width="150" height="100" rx="20" fill="#10B981" />
+      <circle cx="160" cy="310" r="30" fill="#1E293B" /><circle cx="230" cy="310" r="22" fill="#1E293B" /><circle cx="350" cy="310" r="22" fill="#1E293B" />
+    </g>
+  </svg>

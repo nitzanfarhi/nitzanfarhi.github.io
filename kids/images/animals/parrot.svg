@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_parrot" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECFDF5" />
+      <stop offset="100%" stop-color="#D1FAE5" />
+    </linearGradient>
+    <radialGradient id="glow_parrot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_parrot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_parrot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_parrot)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_parrot)" />
+
+    <g filter="url(#shadow_parrot)">
+      <ellipse cx="256" cy="250" rx="90" ry="110" fill="#22C55E" />
+      <path d="M 280 210 C 370 210, 360 290, 300 290 Z" fill="#F59E0B" />
+      <circle cx="270" cy="205" r="16" fill="#FFFFFF" /><circle cx="270" cy="205" r="8" fill="#1E293B" />
+      <ellipse cx="245" cy="245" rx="14" ry="8" fill="#F43F5E" opacity="0.6" />
+    </g>
+  </svg>

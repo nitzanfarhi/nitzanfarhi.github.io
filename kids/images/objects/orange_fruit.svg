@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_orange_fruit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF7ED" />
+      <stop offset="100%" stop-color="#FFEDD5" />
+    </linearGradient>
+    <radialGradient id="glow_orange_fruit" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_orange_fruit" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_orange_fruit" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_orange_fruit)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_orange_fruit)" />
+
+    <g filter="url(#shadow_orange_fruit)">
+      <!-- Stem & Leaf -->
+      <rect x="250" y="125" width="12" height="30" rx="4" fill="#78350F" />
+      <ellipse cx="290" cy="135" rx="25" ry="14" fill="#16A34A" transform="rotate(-20 290 135)" />
+      <!-- Orange Sphere -->
+      <circle cx="256" cy="265" r="115" fill="#F97316" />
+      <circle cx="215" cy="220" r="15" fill="#FFFFFF" opacity="0.4" />
+    </g>
+  </svg>

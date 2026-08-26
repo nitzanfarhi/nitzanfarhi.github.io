@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5FF" />
+      <stop offset="100%" stop-color="#F3E8FF" />
+    </linearGradient>
+    <radialGradient id="glow_rainbow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_rainbow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_rainbow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_rainbow)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_rainbow)" />
+
+      <g filter="url(#shadow_rainbow)">
+        <path d="M 120 330 A 136 136 0 0 1 392 330" fill="none" stroke="#EF4444" stroke-width="20" stroke-linecap="round" />
+        <path d="M 140 330 A 116 116 0 0 1 372 330" fill="none" stroke="#F97316" stroke-width="20" stroke-linecap="round" />
+        <path d="M 160 330 A 96 96 0 0 1 352 330" fill="none" stroke="#FACC15" stroke-width="20" stroke-linecap="round" />
+        <path d="M 180 330 A 76 76 0 0 1 332 330" fill="none" stroke="#22C55E" stroke-width="20" stroke-linecap="round" />
+        <path d="M 200 330 A 56 56 0 0 1 312 330" fill="none" stroke="#3B82F6" stroke-width="20" stroke-linecap="round" />
+        <path d="M 220 330 A 36 36 0 0 1 292 330" fill="none" stroke="#A855F7" stroke-width="20" stroke-linecap="round" />
+        <!-- Clouds at base -->
+        <circle cx="130" cy="330" r="35" fill="#FFFFFF" />
+        <circle cx="160" cy="330" r="28" fill="#FFFFFF" />
+        <circle cx="382" cy="330" r="35" fill="#FFFFFF" />
+        <circle cx="352" cy="330" r="28" fill="#FFFFFF" />
+      </g>
+    </svg>

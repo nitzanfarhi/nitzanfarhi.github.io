@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_comb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF3C7" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+    <radialGradient id="glow_comb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_comb" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_comb" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_comb)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_comb)" />
+
+    <g filter="url(#shadow_comb)">
+      <rect x="140" y="220" width="232" height="50" rx="10" fill="#F59E0B" />
+      
+        <rect x="155" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="177" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="199" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="221" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="243" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="265" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="287" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="309" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="331" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+        <rect x="353" y="270" width="8" height="50" rx="4" fill="#D97706" />
+      
+    </g>
+  </svg>

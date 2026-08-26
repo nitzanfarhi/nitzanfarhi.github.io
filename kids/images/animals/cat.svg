@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_cat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1F2" />
+      <stop offset="100%" stop-color="#FFE4E6" />
+    </linearGradient>
+    <radialGradient id="glow_cat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_cat" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_cat" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_cat)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_cat)" />
+
+    <g filter="url(#shadow_cat)">
+      <polygon points="150,180 180,90 230,160" fill="#FB923C" />
+      <polygon points="362,180 332,90 282,160" fill="#FB923C" />
+      <ellipse cx="256" cy="250" rx="120" ry="105" fill="#FDBA74" />
+      <polygon points="256,265 244,252 268,252" fill="#F43F5E" />
+      <line x1="130" y1="250" x2="190" y2="255" stroke="#78350F" stroke-width="4" stroke-linecap="round" />
+      <line x1="382" y1="250" x2="322" y2="255" stroke="#78350F" stroke-width="4" stroke-linecap="round" />
+      
+  <!-- Cute Face -->
+  <g transform="translate(256, 230) scale(1.05)">
+    <!-- Blush -->
+    <ellipse cx="-75" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <ellipse cx="75" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <!-- Left Eye -->
+    <circle cx="-38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="-42" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="-34" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Right Eye -->
+    <circle cx="38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="34" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="42" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Smile -->
+    <path d="M -16 30 Q 0 45 16 30" fill="none" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+  </g>
+
+    </g>
+  </svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_chicken" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="100%" stop-color="#FEF3C7" />
+    </linearGradient>
+    <radialGradient id="glow_chicken" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_chicken" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_chicken" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_chicken)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_chicken)" />
+
+    <g filter="url(#shadow_chicken)">
+      <circle cx="230" cy="115" r="22" fill="#EF4444" /><circle cx="256" cy="100" r="26" fill="#EF4444" /><circle cx="282" cy="115" r="22" fill="#EF4444" />
+      <circle cx="256" cy="230" r="105" fill="#FFFFFF" />
+      <ellipse cx="256" cy="290" rx="16" ry="22" fill="#EF4444" />
+      <polygon points="256,260 236,235 276,235" fill="#F97316" />
+      
+  <!-- Cute Face -->
+  <g transform="translate(256, 200) scale(1)">
+    <!-- Blush -->
+    <ellipse cx="-65" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <ellipse cx="65" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <!-- Left Eye -->
+    <circle cx="-38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="-42" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="-34" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Right Eye -->
+    <circle cx="38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="34" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="42" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Smile -->
+    <path d="M -16 10 Q 0 25 16 10" fill="none" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+  </g>
+
+    </g>
+  </svg>

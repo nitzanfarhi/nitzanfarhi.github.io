@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_flamingo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1F2" />
+      <stop offset="100%" stop-color="#FFE4E6" />
+    </linearGradient>
+    <radialGradient id="glow_flamingo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_flamingo" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_flamingo" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_flamingo)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_flamingo)" />
+
+    <g filter="url(#shadow_flamingo)">
+      <path d="M 230 330 C 200 230, 320 180, 270 120" fill="none" stroke="#FB7185" stroke-width="26" stroke-linecap="round" />
+      <ellipse cx="210" cy="330" rx="65" ry="45" fill="#F43F5E" />
+      <circle cx="270" cy="115" r="30" fill="#FB7185" />
+      <path d="M 285 110 Q 325 115 325 145 L 305 145 Z" fill="#1E293B" />
+      <circle cx="265" cy="105" r="6" fill="#1E293B" />
+    </g>
+  </svg>

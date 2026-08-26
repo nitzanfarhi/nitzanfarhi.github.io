@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_sun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEFCE8" />
+      <stop offset="100%" stop-color="#FEF08A" />
+    </linearGradient>
+    <radialGradient id="glow_sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_sun" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_sun" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_sun)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_sun)" />
+
+    <g filter="url(#shadow_sun)">
+      <!-- Sun Rays -->
+      
+        <line x1="371" y1="256" x2="401" y2="256" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="337.31727983645294" y1="337.31727983645294" x2="358.5304832720494" y2="358.53048327204937" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="256" y1="371" x2="256" y2="401" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="174.68272016354706" y1="337.31727983645294" x2="153.46951672795063" y2="358.5304832720494" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="141" y1="256" x2="111" y2="256" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="174.682720163547" y1="174.68272016354706" x2="153.46951672795058" y2="153.46951672795063" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="255.99999999999997" y1="141" x2="255.99999999999997" y2="111" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+        <line x1="337.31727983645294" y1="174.682720163547" x2="358.53048327204937" y2="153.46951672795058" stroke="#F59E0B" stroke-width="14" stroke-linecap="round" />
+      
+      <!-- Sun Disc -->
+      <circle cx="256" cy="256" r="95" fill="#FACC15" />
+      
+  <!-- Cute Face -->
+  <g transform="translate(256, 245) scale(1)">
+    <!-- Blush -->
+    <ellipse cx="-60" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <ellipse cx="60" cy="10" rx="16" ry="9" fill="#FF8BA7" opacity="0.6" />
+    <!-- Left Eye -->
+    <circle cx="-38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="-42" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="-34" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Right Eye -->
+    <circle cx="38" cy="-10" r="14" fill="#1E293B" />
+    <circle cx="34" cy="-15" r="5" fill="#FFFFFF" />
+    <circle cx="42" cy="-7" r="2.5" fill="#FFFFFF" />
+    <!-- Smile -->
+    <path d="M -16 15 Q 0 30 16 15" fill="none" stroke="#1E293B" stroke-width="5" stroke-linecap="round" />
+  </g>
+
+    </g>
+  </svg>

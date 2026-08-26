@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_house" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF" />
+      <stop offset="100%" stop-color="#DBEAFE" />
+    </linearGradient>
+    <radialGradient id="glow_house" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_house" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_house" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_house)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_house)" />
+
+    <g filter="url(#shadow_house)">
+      <!-- Roof -->
+      <polygon points="256,120 120,220 392,220" fill="#EF4444" />
+      <!-- Walls -->
+      <rect x="150" y="220" width="212" height="140" fill="#FBBF24" />
+      <!-- Door -->
+      <rect x="226" y="280" width="60" height="80" rx="6" fill="#B45309" />
+      <circle cx="275" cy="320" r="5" fill="#FEF3C7" />
+      <!-- Window -->
+      <rect x="175" y="240" width="40" height="40" rx="4" fill="#E0F2FE" />
+      <rect x="297" y="240" width="40" height="40" rx="4" fill="#E0F2FE" />
+    </g>
+  </svg>

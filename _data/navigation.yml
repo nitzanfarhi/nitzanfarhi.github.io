@@ -9,6 +9,7 @@ main:
     url: /publications/
 
   - title: "Datasets"
-    url: /datasets/    
+    url: /datasets/
 
-
+  - title: "Kids Game"
+    url: /kids/

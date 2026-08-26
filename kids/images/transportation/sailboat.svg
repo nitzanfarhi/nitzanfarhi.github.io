@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_sailboat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDF4" />
+      <stop offset="100%" stop-color="#DCFCE7" />
+    </linearGradient>
+    <radialGradient id="glow_sailboat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_sailboat" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_sailboat" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_sailboat)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_sailboat)" />
+
+    <g filter="url(#shadow_sailboat)">
+      <path d="M 120 290 L 150 350 L 360 350 L 390 290 Z" fill="#FFFFFF" />
+      <line x1="230" y1="290" x2="230" y2="100" stroke="#78350F" stroke-width="8" stroke-linecap="round" />
+      <polygon points="240,110 340,260 240,260" fill="#3B82F6" />
+    </g>
+  </svg>

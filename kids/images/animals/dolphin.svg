@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_dolphin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F9FF" />
+      <stop offset="100%" stop-color="#E0F2FE" />
+    </linearGradient>
+    <radialGradient id="glow_dolphin" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_dolphin" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_dolphin" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_dolphin)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_dolphin)" />
+
+    <g filter="url(#shadow_dolphin)">
+      <path d="M 100 320 C 160 200, 300 140, 420 220 C 370 290, 240 330, 100 320 Z" fill="#0EA5E9" />
+      <path d="M 250 160 Q 270 100 310 145 Z" fill="#0284C7" />
+      <circle cx="365" cy="210" r="10" fill="#1E293B" />
+      <ellipse cx="345" cy="230" rx="10" ry="6" fill="#F472B6" opacity="0.6" />
+    </g>
+  </svg>

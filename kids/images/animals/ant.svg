@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_ant" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF2F2" />
+      <stop offset="100%" stop-color="#FEE2E2" />
+    </linearGradient>
+    <radialGradient id="glow_ant" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_ant" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_ant" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_ant)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_ant)" />
+
+    <g filter="url(#shadow_ant)">
+      <ellipse cx="170" cy="260" rx="45" ry="35" fill="#DC2626" />
+      <ellipse cx="256" cy="260" rx="35" ry="28" fill="#B91C1C" />
+      <ellipse cx="335" cy="260" rx="40" ry="35" fill="#EF4444" />
+      <path d="M 230 280 L 190 350 M 256 280 L 256 355 M 280 280 L 320 350" stroke="#991B1B" stroke-width="8" stroke-linecap="round" />
+      <circle cx="345" cy="250" r="6" fill="#FFFFFF" /><circle cx="345" cy="250" r="3" fill="#000000" />
+      <ellipse cx="330" cy="275" rx="8" ry="5" fill="#FDA4AF" />
+    </g>
+  </svg>

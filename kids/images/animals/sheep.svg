@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_sheep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <radialGradient id="glow_sheep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_sheep" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_sheep" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_sheep)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_sheep)" />
+
+    <g filter="url(#shadow_sheep)">
+      
+        <circle cx="371" cy="235" r="45" fill="#FFFFFF" />
+      
+        <circle cx="344.0951109586825" cy="308.920575113952" r="45" fill="#FFFFFF" />
+      
+        <circle cx="275.969540431697" cy="348.2528915964039" r="45" fill="#FFFFFF" />
+      
+        <circle cx="198.50000000000003" cy="334.5929214352104" r="45" fill="#FFFFFF" />
+      
+        <circle cx="147.93534860962055" cy="274.3323164824519" r="45" fill="#FFFFFF" />
+      
+        <circle cx="147.93534860962052" cy="195.6676835175481" r="45" fill="#FFFFFF" />
+      
+        <circle cx="198.49999999999994" cy="135.40707856478957" r="45" fill="#FFFFFF" />
+      
+        <circle cx="275.96954043169694" cy="121.74710840359606" r="45" fill="#FFFFFF" />
+      
+        <circle cx="344.0951109586824" cy="161.07942488604795" r="45" fill="#FFFFFF" />
+      
+      <ellipse cx="256" cy="245" rx="75" ry="85" fill="#1E293B" />
+      <circle cx="225" cy="235" r="10" fill="#FFFFFF" /><circle cx="225" cy="235" r="5" fill="#000000" />
+      <circle cx="287" cy="235" r="10" fill="#FFFFFF" /><circle cx="287" cy="235" r="5" fill="#000000" />
+      <path d="M 246 275 Q 256 285 266 275" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" />
+    </g>
+  </svg>

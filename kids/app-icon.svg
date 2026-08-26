@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+
+    <linearGradient id="maneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EA580C" />
+      <stop offset="100%" stop-color="#C2410C" />
+    </linearGradient>
+
+    <linearGradient id="faceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+
+    <clipPath id="squircleClip">
+      <rect x="0" y="0" width="512" height="512" rx="112" ry="112" />
+    </clipPath>
+
+    <clipPath id="circleClip">
+      <circle cx="256" cy="256" r="248" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Base -->
+  <g clip-path="url(#squircleClip)">
+    <rect width="512" height="512" fill="url(#bgGrad)" />
+    
+    <!-- Subtle Joyful Background Sparkles -->
+    <circle cx="90" cy="110" r="16" fill="#FFFFFF" opacity="0.35" />
+    <polygon points="420,80 425,95 440,100 425,105 420,120 415,105 400,100 415,95" fill="#FFFFFF" opacity="0.45" />
+    <polygon points="80,410 84,420 95,424 84,428 80,440 76,428 65,424 76,420" fill="#FFFFFF" opacity="0.35" />
+    <circle cx="430" cy="400" r="20" fill="#FFFFFF" opacity="0.3" />
+
+    <!-- Cute Smiling Lion Mascot -->
+    <g filter="url(#dropShadow)">
+      <!-- Lion Mane Petals (Clean, geometric, friendly) -->
+      <g fill="url(#maneGrad)">
+        <circle cx="256" cy="120" r="48" />
+        <circle cx="346" cy="146" r="48" />
+        <circle cx="394" cy="226" r="48" />
+        <circle cx="380" cy="316" r="48" />
+        <circle cx="316" cy="386" r="48" />
+        <circle cx="256" cy="404" r="48" />
+        <circle cx="196" cy="386" r="48" />
+        <circle cx="132" cy="316" r="48" />
+        <circle cx="118" cy="226" r="48" />
+        <circle cx="166" cy="146" r="48" />
+      </g>
+
+      <!-- Lion Ears -->
+      <circle cx="168" cy="170" r="36" fill="#F59E0B" stroke="#EA580C" stroke-width="6" />
+      <circle cx="168" cy="170" r="20" fill="#FDA4AF" />
+      <circle cx="344" cy="170" r="36" fill="#F59E0B" stroke="#EA580C" stroke-width="6" />
+      <circle cx="344" cy="170" r="20" fill="#FDA4AF" />
+
+      <!-- Lion Head Base -->
+      <circle cx="256" cy="265" r="124" fill="url(#faceGrad)" />
+
+      <!-- Cheerful Cheeks -->
+      <ellipse cx="180" cy="290" rx="22" ry="14" fill="#FB7185" opacity="0.6" />
+      <ellipse cx="332" cy="290" rx="22" ry="14" fill="#FB7185" opacity="0.6" />
+
+      <!-- Sparkling Big Eyes -->
+      <!-- Left Eye -->
+      <ellipse cx="204" cy="245" rx="18" ry="24" fill="#1E293B" />
+      <circle cx="210" cy="235" r="8" fill="#FFFFFF" />
+      <circle cx="198" cy="254" r="4" fill="#FFFFFF" />
+
+      <!-- Right Eye -->
+      <ellipse cx="308" cy="245" rx="18" ry="24" fill="#1E293B" />
+      <circle cx="314" cy="235" r="8" fill="#FFFFFF" />
+      <circle cx="302" cy="254" r="4" fill="#FFFFFF" />
+
+      <!-- White Muzzle -->
+      <ellipse cx="256" cy="298" rx="42" ry="32" fill="#FFFFFF" />
+      <ellipse cx="236" cy="305" rx="22" ry="18" fill="#FFFFFF" />
+      <ellipse cx="276" cy="305" rx="22" ry="18" fill="#FFFFFF" />
+
+      <!-- Cute Heart-Shaped Pink Nose -->
+      <polygon points="256,298 244,284 268,284" fill="#E11D48" rx="4" />
+      <circle cx="249" cy="284" r="6" fill="#E11D48" />
+      <circle cx="263" cy="284" r="6" fill="#E11D48" />
+
+      <!-- Smiling Mouth -->
+      <path d="M 240 306 Q 256 322 256 306 Q 256 322 272 306" fill="none" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+      
+      <!-- Whiskers -->
+      <circle cx="225" cy="302" r="2.5" fill="#94A3B8" />
+      <circle cx="220" cy="308" r="2.5" fill="#94A3B8" />
+      <circle cx="287" cy="302" r="2.5" fill="#94A3B8" />
+      <circle cx="292" cy="308" r="2.5" fill="#94A3B8" />
+    </g>
+  </g>
+</svg>

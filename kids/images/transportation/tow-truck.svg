@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_tow-truck" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF7ED" />
+      <stop offset="100%" stop-color="#FFEDD5" />
+    </linearGradient>
+    <radialGradient id="glow_tow-truck" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_tow-truck" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_tow-truck" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_tow-truck)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_tow-truck)" />
+
+    <g filter="url(#shadow_tow_truck)">
+      <line x1="140" y1="260" x2="230" y2="160" stroke="#CA8A04" stroke-width="12" stroke-linecap="round" />
+      <path d="M 260 190 L 330 190 L 360 230 L 360 280 L 260 280 Z" fill="#EA580C" />
+      <circle cx="170" cy="295" r="30" fill="#1E293B" /><circle cx="330" cy="295" r="30" fill="#1E293B" />
+    </g>
+  </svg>

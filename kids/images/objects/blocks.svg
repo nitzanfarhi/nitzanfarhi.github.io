@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_blocks" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFF6FF" />
+      <stop offset="100%" stop-color="#DBEAFE" />
+    </linearGradient>
+    <radialGradient id="glow_blocks" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_blocks" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_blocks" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_blocks)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_blocks)" />
+
+    <g filter="url(#shadow_blocks)">
+      <!-- Block 1 -->
+      <rect x="140" y="240" width="100" height="100" rx="16" fill="#EF4444" />
+      <text x="190" y="305" font-family="sans-serif" font-size="50" font-weight="bold" fill="#FFFFFF" text-anchor="middle">A</text>
+      <!-- Block 2 -->
+      <rect x="260" y="240" width="100" height="100" rx="16" fill="#3B82F6" />
+      <text x="310" y="305" font-family="sans-serif" font-size="50" font-weight="bold" fill="#FFFFFF" text-anchor="middle">B</text>
+      <!-- Block 3 Top -->
+      <rect x="200" y="130" width="100" height="100" rx="16" fill="#FACC15" />
+      <text x="250" y="195" font-family="sans-serif" font-size="50" font-weight="bold" fill="#1E293B" text-anchor="middle">C</text>
+    </g>
+  </svg>

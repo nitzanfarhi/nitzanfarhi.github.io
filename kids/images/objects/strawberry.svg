@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_strawberry" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1F2" />
+      <stop offset="100%" stop-color="#FFE4E6" />
+    </linearGradient>
+    <radialGradient id="glow_strawberry" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_strawberry" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_strawberry" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_strawberry)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_strawberry)" />
+
+    <g filter="url(#shadow_strawberry)">
+      <!-- Strawberry Body -->
+      <path d="M 160 190 C 140 280, 220 370, 256 370 C 292 370, 372 280, 352 190 C 330 150, 180 150, 160 190 Z" fill="#E11D48" />
+      <!-- Leaves -->
+      <polygon points="256,170 230,120 256,145 282,120" fill="#16A34A" />
+      <!-- Seeds -->
+      
+        <ellipse cx="216" cy="220" rx="4" ry="7" fill="#FDE047" />
+      
+        <ellipse cx="256" cy="220" rx="4" ry="7" fill="#FDE047" />
+      
+        <ellipse cx="296" cy="220" rx="4" ry="7" fill="#FDE047" />
+      
+        <ellipse cx="236" cy="260" rx="4" ry="7" fill="#FDE047" />
+      
+        <ellipse cx="276" cy="260" rx="4" ry="7" fill="#FDE047" />
+      
+        <ellipse cx="256" cy="300" rx="4" ry="7" fill="#FDE047" />
+      
+    </g>
+  </svg>

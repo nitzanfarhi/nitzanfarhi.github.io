@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_banana" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEFCE8" />
+      <stop offset="100%" stop-color="#FEF08A" />
+    </linearGradient>
+    <radialGradient id="glow_banana" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_banana" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_banana" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_banana)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_banana)" />
+
+    <g filter="url(#shadow_banana)">
+      <path d="M 140 180 C 140 330, 310 360, 380 270 C 320 320, 190 290, 180 180 Z" fill="#FACC15" />
+      <!-- Stem and tip -->
+      <polygon points="140,180 150,150 165,160 155,185" fill="#65A30D" />
+      <circle cx="380" cy="270" r="8" fill="#713F12" />
+    </g>
+  </svg>

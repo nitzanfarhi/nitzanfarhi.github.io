@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_piano" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5FF" />
+      <stop offset="100%" stop-color="#F3E8FF" />
+    </linearGradient>
+    <radialGradient id="glow_piano" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_piano" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.15" />
+    </filter>
+    <filter id="softShadow_piano" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+    
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_piano)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_piano)" />
+
+    <g filter="url(#shadow_piano)">
+      <rect x="120" y="170" width="272" height="170" rx="16" fill="#1E293B" />
+      <rect x="135" y="230" width="242" height="95" rx="4" fill="#FFFFFF" />
+      <rect x="155" y="230" width="18" height="55" rx="3" fill="#1E293B" /><rect x="185" y="230" width="18" height="55" rx="3" fill="#1E293B" /><rect x="245" y="230" width="18" height="55" rx="3" fill="#1E293B" /><rect x="275" y="230" width="18" height="55" rx="3" fill="#1E293B" /><rect x="305" y="230" width="18" height="55" rx="3" fill="#1E293B" />
+    </g>
+  </svg>
