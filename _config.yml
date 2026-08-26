@@ -154,6 +154,7 @@ include:
   - .htaccess
   - _pages
   - files
+  - kids
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
