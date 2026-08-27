@@ -1,0 +1,30 @@
+{
+  "name": "למד לדבר - Kids Learn & Speak",
+  "short_name": "Kids Learn",
+  "description": "אפליקציית לימוד מילים וקולות לילדים ופעוטות בעברית ובאנגלית",
+  "id": "kids-learn-speak-pwa",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
+  "background_color": "#FFFBEB",
+  "theme_color": "#F59E0B",
+  "orientation": "any",
+  "lang": "he",
+  "dir": "rtl",
+  "categories": ["education", "kids", "games"],
+  "icons": [
+    {
+      "src": "app-icon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
