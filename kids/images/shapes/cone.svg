@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg_cone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5FF" />
+      <stop offset="100%" stop-color="#F3E8FF" />
+    </linearGradient>
+    <radialGradient id="glow_cone" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow_cone" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="96" fill="url(#bg_cone)" />
+  <circle cx="256" cy="256" r="210" fill="url(#glow_cone)" />
+  <!-- Main Content -->
+  
+    <g filter="url(#shadow_cone)">
+      
+        <polygon points="256,110 366,350 146,350" fill="#FB923C" />
+        <ellipse cx="256" cy="350" rx="110" ry="32" fill="#EA580C" />
+      
+    </g>
+  
+</svg>
