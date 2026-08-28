@@ -114,12 +114,34 @@ self.addEventListener('fetch', (event) => {
         }
 
         try {
-          const networkResponse = await fetch(request);
-          if (networkResponse && networkResponse.status === 200) {
+          // iOS Safari sends Range: bytes=0- for <audio>, receiving 206.
+          // We must strip the Range header to get a full 200 for caching,
+          // then slice it back to 206 for the client if needed.
+          const hasRange = request.headers.get('range');
+          const fetchRequest = hasRange
+            ? new Request(request.url, {
+                method: request.method,
+                headers: (() => {
+                  const h = new Headers(request.headers);
+                  h.delete('range');
+                  return h;
+                })(),
+                mode: 'cors',
+                credentials: request.credentials,
+              })
+            : request;
+
+          const networkResponse = await fetch(fetchRequest);
+          if (networkResponse && networkResponse.ok) {
             const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(request, responseToCache);
             });
+          }
+
+          // If the original request had a Range header, slice the full response
+          if (hasRange && networkResponse.ok) {
+            return handleRangeRequest(request, networkResponse.clone());
           }
           return networkResponse;
         } catch {
