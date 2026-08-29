@@ -7,7 +7,7 @@
  * - Stale-While-Revalidate for app shell code (HTML/JS/CSS)
  */
 
-const CACHE_NAME = 'kids-learn-cache-v8';
+const CACHE_NAME = 'kids-learn-cache-v9';
 
 const PRECACHE_ASSETS = [
   './',
@@ -105,7 +105,7 @@ self.addEventListener('fetch', (event) => {
     url.pathname.endsWith('.jpg')
   ) {
     event.respondWith(
-      caches.match(request, { ignoreSearch: true }).then(async (cachedResponse) => {
+      caches.match(request).then(async (cachedResponse) => {
         if (cachedResponse) {
           if (request.headers.get('range')) {
             return handleRangeRequest(request, cachedResponse);
@@ -128,8 +128,15 @@ self.addEventListener('fetch', (event) => {
                 })(),
                 mode: 'cors',
                 credentials: request.credentials,
+                cache: 'no-cache',
               })
-            : request;
+            : new Request(request.url, {
+                method: request.method,
+                headers: request.headers,
+                mode: 'cors',
+                credentials: request.credentials,
+                cache: 'no-cache',
+              });
 
           const networkResponse = await fetch(fetchRequest);
           if (networkResponse && networkResponse.ok) {
