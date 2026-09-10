@@ -13,3 +13,6 @@ main:
 
   - title: "Kids Game"
     url: /kids/
+
+  - title: "Glucose Tracker"
+    url: /glucose/
