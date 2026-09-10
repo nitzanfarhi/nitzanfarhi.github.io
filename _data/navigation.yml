@@ -8,11 +8,8 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "Projects"
+    url: /projects/
+
   - title: "Datasets"
     url: /datasets/
-
-  - title: "Kids Game"
-    url: /kids/
-
-  - title: "Glucose Tracker"
-    url: /glucose/

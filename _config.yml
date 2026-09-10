@@ -9,13 +9,13 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "NFS"
+title                    : "Nitzan Farhi Shahar"
 title_separator          : "-"
 name                     : &name "Nitzan Farhi Shahar"
-description              : &description "personal website"
+description              : &description "Nitzan Farhi Shahar, PhD — Senior Vulnerability Researcher & Security Research Lead"
 url                      : https://nitzanfarhi.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "nitzanfarhi/nitzanfarhi.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -23,11 +23,11 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.jpg"
-  name             : "Nitzan Farhi Shahar"
+  name             : "Nitzan Farhi Shahar, PhD"
   pronouns         : # example: "she/her"  
-  bio              : # "Short biography for the left-hand sidebar"
+  bio              : "Senior Vulnerability Researcher & Security Research Lead · PhD in EE (Tel Aviv University)"
   location         : "Israel"
-  employer         : "Tel Aviv University"
+  employer         : # No company or unit listed per instructions
   uri              : # URL
   email            : "nitzan2611@gmail.com" 
 
@@ -35,10 +35,10 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=yA8PEnMAAAAJ"
   impactstory      : # URL
-  orcid            : "https://orcid.org/my-orcid?orcid=0000-0001-9751-3694"
+  orcid            : "https://orcid.org/0000-0001-9751-3694"
   semantic         : # URL
   pubmed           : # URL
-  researchgate     : # URL
+  researchgate     : "https://www.researchgate.net/scientific-contribution/Nitzan-Farhi-2152865963"
   scopus           : # URL
 
   # Repositories and software development
@@ -46,7 +46,7 @@ author:
   codepen          : # Username
   dribbble         : # Username
   github           : "nitzanfarhi"
-  kaggle           : # Username  
+  kaggle           : "nitzanfarhi"
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
@@ -59,7 +59,7 @@ author:
   keybase          : # Username
   instagram        : # Username
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "nitzan-farhi"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
