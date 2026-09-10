@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+
+    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#FEF08A" />
+      <stop offset="100%" stop-color="#FDE047" />
+    </linearGradient>
+
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#BE123C" />
+    </linearGradient>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.22" />
+    </filter>
+
+    <clipPath id="squircleClip">
+      <rect x="0" y="0" width="512" height="512" rx="112" ry="112" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Base with warm amber/orange squircle -->
+  <g clip-path="url(#squircleClip)">
+    <rect width="512" height="512" fill="url(#bgGrad)" />
+
+    <!-- Joyful background sparkles -->
+    <circle cx="95" cy="110" r="14" fill="#FFFFFF" opacity="0.4" />
+    <polygon points="420,85 424,97 436,101 424,105 420,117 416,105 404,101 416,97" fill="#FFFFFF" opacity="0.45" />
+    <polygon points="85,410 88,418 97,421 88,424 85,432 82,424 73,421 82,418" fill="#FFFFFF" opacity="0.35" />
+    <circle cx="430" cy="390" r="18" fill="#FFFFFF" opacity="0.35" />
+
+    <!-- Main Blood Glucose Droplet Character with Soft Shadow -->
+    <g filter="url(#dropShadow)">
+      <!-- Smooth teardrop shape -->
+      <path d="M 256 80 C 256 80 130 230 130 330 A 126 126 0 0 0 382 330 C 382 230 256 80 256 80 Z" fill="url(#dropGrad)" stroke="#B45309" stroke-width="8" stroke-linejoin="round" />
+      
+      <!-- Cheerful Highlight shine -->
+      <path d="M 180 280 C 170 230 220 160 235 140" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.8" />
+      
+      <!-- Joyful Heart / Pulse Inside -->
+      <path d="M 256 280 C 240 255 200 255 200 285 C 200 315 256 355 256 355 C 256 355 312 315 312 285 C 312 255 272 255 256 280 Z" fill="url(#heartGrad)" />
+      <circle cx="230" cy="275" r="4" fill="#FFFFFF" opacity="0.7" />
+
+      <!-- Cute smiling face details -->
+      <circle cx="218" cy="235" r="8" fill="#78350F" />
+      <circle cx="294" cy="235" r="8" fill="#78350F" />
+      <!-- Rosy cheeks -->
+      <circle cx="204" cy="245" r="9" fill="#FB7185" opacity="0.6" />
+      <circle cx="308" cy="245" r="9" fill="#FB7185" opacity="0.6" />
+      <!-- Smile -->
+      <path d="M 242 245 Q 256 256 270 245" stroke="#78350F" stroke-width="5" stroke-linecap="round" fill="none" />
+    </g>
+  </g>
+</svg>

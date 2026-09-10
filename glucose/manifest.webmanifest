@@ -1,0 +1,30 @@
+{
+  "name": "מעקב סוכר הריון - Glucose Tracker",
+  "short_name": "Glucose",
+  "description": "יומן מעקב סוכר קל וידידותי להריון ולסוכרת הריונית",
+  "id": "glucose-tracker-pwa",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
+  "background_color": "#FFFBEB",
+  "theme_color": "#F59E0B",
+  "orientation": "any",
+  "lang": "he",
+  "dir": "rtl",
+  "categories": ["medical", "health"],
+  "icons": [
+    {
+      "src": "app-icon.svg",
+      "sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "app-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

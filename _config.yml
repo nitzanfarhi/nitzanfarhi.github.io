@@ -155,6 +155,7 @@ include:
   - _pages
   - files
   - kids
+  - glucose
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
