@@ -16,8 +16,8 @@ I research vulnerabilities, reverse engineer complex systems, and build practica
   <a href="/datasets/" class="btn btn--primary"><i class="fas fa-database"></i> Datasets</a>
   <a href="https://github.com/nitzanfarhi" target="_blank" rel="noopener" class="btn btn--inverse"><i class="fab fa-github"></i> GitHub</a>
   <a href="https://scholar.google.com/citations?user=yA8PEnMAAAAJ" target="_blank" rel="noopener" class="btn btn--inverse"><i class="ai ai-google-scholar"></i> Google Scholar</a>
-  <a href="https://www.linkedin.com/in/nitzan-farhi" target="_blank" rel="noopener" class="btn btn--inverse"><i class="fab fa-linkedin"></i> LinkedIn</a>
-  <a href="mailto:nitzan2611@gmail.com" class="btn btn--inverse"><i class="fas fa-envelope"></i> Email</a>
+  <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener" class="btn btn--inverse"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  <a href="mailto:{{ site.author.email }}" class="btn btn--inverse"><i class="fas fa-envelope"></i> Email</a>
 </div>
 
 ---
@@ -65,4 +65,4 @@ See all articles on the **[Publications](/publications/)** page or on **[Google 
 
 ## Connect
 
-For professional background and career details, visit my **[LinkedIn](https://www.linkedin.com/in/nitzan-farhi)** profile or get in touch directly via **[Email](mailto:nitzan2611@gmail.com)**.
+For professional background and career details, visit my **[LinkedIn](https://www.linkedin.com/in/{{ site.author.linkedin }})** profile or get in touch directly via **[Email](mailto:{{ site.author.email }})**.
