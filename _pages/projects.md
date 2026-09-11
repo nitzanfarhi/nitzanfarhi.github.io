@@ -95,15 +95,3 @@ A selection of research tooling, security machine learning systems, and interact
   </article>
 </div>
 
----
-
-## Vulnerability Research &amp; Low-Level Tooling
-
-<div class="list__item">
-  <article class="archive__item">
-    <h3 class="archive__item-title">Binary Analysis &amp; Research Automation</h3>
-    <p class="archive__item-excerpt">
-      Specialized reverse engineering scripts, Ghidra/IDA plugins, and emulation harnesses developed for vulnerability discovery, target auditing, and triage of proprietary software protocols and binary targets.
-    </p>
-  </article>
-</div>
