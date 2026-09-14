@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Nitzan Farhi Shahar"
 title_separator          : "-"
 name                     : &name "Nitzan Farhi Shahar"
-description              : &description "Nitzan Farhi Shahar, PhD — Senior Vulnerability Researcher & Security Research Lead"
+description              : &description "Personal website of Nitzan Farhi Shahar, PhD."
 url                      : https://nitzanfarhi.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "nitzanfarhi/nitzanfarhi.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Nitzan Farhi Shahar, PhD"
   pronouns         : # example: "she/her"  
-  bio              : "Senior Vulnerability Researcher & Security Research Lead · PhD in EE (Tel Aviv University)"
+  bio              : "PhD in Electrical Engineering from Tel Aviv University. Works on software security and machine learning."
   location         : "Israel"
   employer         : # No company or unit listed per instructions
   uri              : # URL

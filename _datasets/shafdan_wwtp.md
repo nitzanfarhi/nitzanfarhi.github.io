@@ -2,7 +2,7 @@
 title: "Shafdan Wastewater Treatment Plant Bio-Reactor Measurements"
 collection: datasets
 permalink: /datasets/shafdan_wwtp
-excerpt: "Comprehensive multi-year sensor telemetry and water quality laboratory measurements from the full-scale Shafdan wastewater treatment bio-reactor for time-series forecasting."
+excerpt: "Multi-year sensor measurements and water quality laboratory data from the Shafdan wastewater treatment plant."
 layout: single
 author_profile: true
 ---
@@ -10,14 +10,14 @@ author_profile: true
 [![View on Kaggle](https://img.shields.io/badge/Kaggle-View%20Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/nitzanfarhi/shafdan-wwtp)
 
 ### Overview
-A comprehensive multi-year time-series dataset of bio-reactor sensor telemetry and analytical laboratory tests from the Dan Region Wastewater Treatment Plant (Shafdan), the largest wastewater treatment and reclamation facility in Israel.
+Time-series measurements and analytical laboratory test data collected from the Shafdan wastewater treatment facility.
 
-### Dataset Features
-* Continuous time-series measurements of dissolved oxygen, temperature, pH, flow rates, and chemical loadings.
-* Laboratory analytical parameters including Chemical Oxygen Demand (COD), Total Suspended Solids (TSS), and Sludge Volume Index (SVI).
-* Ideal benchmark for recurrent neural networks (LSTM), non-linear time-series forecasting, and environmental process control.
+### Dataset Contents
+* Sensor readings including dissolved oxygen, temperature, pH, and flow rates.
+* Laboratory measurements including Chemical Oxygen Demand (COD), Total Suspended Solids (TSS), and Sludge Volume Index (SVI).
+* Used for testing recurrent neural networks (LSTM) on non-linear time-series forecasting.
 
-### Access & Links
+### Links
 * **Kaggle**: [kaggle.com/datasets/nitzanfarhi/shafdan-wwtp](https://www.kaggle.com/datasets/nitzanfarhi/shafdan-wwtp)
 * **Associated Publications**:
   * *Environmental Technology & Innovation (2021)* — [DOI: 10.1016/j.eti.2021.101632](https://doi.org/10.1016/j.eti.2021.101632)

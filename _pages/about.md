@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Senior Vulnerability Researcher & Security Research Lead"
+title: "About"
 excerpt: "Personal website of Nitzan Farhi Shahar, PhD"
 author_profile: true
 redirect_from: 
@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I research vulnerabilities, reverse engineer complex systems, and build practical security research tools. My work spans vulnerability research, exploit development, low-level systems, and applied machine learning for cybersecurity.
+I work on vulnerability research, low-level systems, and machine learning for software security. I completed my PhD in Electrical Engineering at Tel Aviv University.
 
 <div style="margin: 1.5em 0; display: flex; flex-wrap: wrap; gap: 0.5em;">
   <a href="/publications/" class="btn btn--primary"><i class="fas fa-book-bookmark"></i> Publications</a>
@@ -22,12 +22,11 @@ I research vulnerabilities, reverse engineer complex systems, and build practica
 
 ---
 
-## Research & Expertise
+## Research Interests
 
-* **Vulnerability Research & Reverse Engineering**: In-depth binary analysis, protocol reverse engineering, firmware auditing, and discovering security vulnerabilities in complex proprietary software.
-* **Exploit Development & Low-Level Systems**: Developing reliable proof-of-concept exploits, analyzing novel exploitation vectors, and studying modern OS mitigation mechanisms across x86 and ARM architectures.
-* **AI & Machine Learning for Cybersecurity**: Applying representation learning, NLP on code, and behavioral analytics to automate silent security patch detection and software security verification.
-* **Time-Series Modeling & Systems Telemetry**: Deep sequence architectures (LSTM) and non-uniform temporal aggregations for continuous system telemetry and process modeling.
+* **Vulnerability research**: Reverse engineering, binary analysis, and exploit development.
+* **Machine learning for software security**: Identifying security patches and analyzing software changes using code representations and repository activity.
+* **Time-series modeling**: Sequence models and temporal aggregation methods for long time-series data.
 
 ---
 
@@ -35,23 +34,23 @@ I research vulnerabilities, reverse engineer complex systems, and build practica
 
 ### [PatchView: Multi-modality detection of security patches](/publication/2025-01-01-PatchView-Multi-modality-detection-of-security-patches)
 *Computers & Security*, 2025  
-*Nitzan Farhi, Noam Koenigstein, Yuval Shavitt*  
-* Highlights: **94.5% Accuracy · 95.1% F1-Score · 0.97 AUC**. Introduces a multi-modal deep learning model combining source code representations, commit messages, and behavioral repository metadata to detect security patches.
-* [[Paper / DOI](https://doi.org/10.1016/j.cose.2025.104356)] &nbsp; [[Code (GitHub)](https://github.com/nitzanfarhi/PatchView)] &nbsp; [[Dataset (Kaggle)](https://www.kaggle.com/datasets/nitzanfarhi/patchview)]
+Nitzan Farhi, Noam Koenigstein, Yuval Shavitt  
+A model that combines source code changes, commit messages, and repository activity to identify security patches in open-source software.  
+[Paper](https://doi.org/10.1016/j.cose.2025.104356) · [Code](https://github.com/nitzanfarhi/PatchView) · [Dataset](https://www.kaggle.com/datasets/nitzanfarhi/patchview)
 
 ### [Detecting Security Patches via Behavioral Data in Code Repositories](/publication/2023-01-01-Detecting-Security-Patches-via-Behavioral-Data-in-Code-Repositories)
 *arXiv / AAAI AICS*, 2023  
-*Nitzan Farhi, Noam Koenigstein, Yuval Shavitt*  
-* Highlights: **88.3% Accuracy · 89.8% F1-Score**. Proposes a language-oblivious methodology that identifies silent security patches across repositories solely through developer behavioral metadata.
-* [[Paper (arXiv)](https://arxiv.org/abs/2302.02112)] &nbsp; [[Code (GitHub)](https://github.com/nitzanfarhi/SecurityPatchDetection)] &nbsp; [[Dataset (Kaggle)](https://www.kaggle.com/datasets/nitzanfarhi/detecting-security-patches-via-behavioral-data)]
+Nitzan Farhi, Noam Koenigstein, Yuval Shavitt  
+An approach to identifying security patches using commit and developer activity metadata without inspecting source code directly.  
+[Paper](https://arxiv.org/abs/2302.02112) · [Code](https://github.com/nitzanfarhi/SecurityPatchDetection) · [Dataset](https://www.kaggle.com/datasets/nitzanfarhi/detecting-security-patches-via-behavioral-data)
 
 ### [Malboard: A novel user keystroke impersonation attack and trusted detection framework based on side-channel analysis](/publication/2019-01-01-Malboard-A-novel-user-keystroke-impersonation-attack-and-trusted-detection-framework-based-on-side-channel-analysis)
 *Computers & Security*, 2019  
-*Nitzan Farhi, Nir Nissim, Yuval Elovici*  
-* Highlights: Investigates physical weaponized USB keyboard implants that evade traditional behavioral biometric defenses, and presents a trusted detection framework using acoustic and keystroke side-channel telemetry.
-* [[Paper / DOI](https://doi.org/10.1016/j.cose.2019.05.008)]
+Nitzan Farhi, Nir Nissim, Yuval Elovici  
+A study on keystroke impersonation attacks using custom USB hardware and a defense framework based on acoustic and timing side-channel data.  
+[Paper](https://doi.org/10.1016/j.cose.2019.05.008)
 
-See all articles on the **[Publications](/publications/)** page or on **[Google Scholar](https://scholar.google.com/citations?user=yA8PEnMAAAAJ)**.
+More publications are listed on the **[Publications](/publications/)** page and on **[Google Scholar](https://scholar.google.com/citations?user=yA8PEnMAAAAJ)**.
 
 ---
 
@@ -63,6 +62,6 @@ See all articles on the **[Publications](/publications/)** page or on **[Google 
 
 ---
 
-## Connect
+## Contact
 
-For professional background and career details, visit my **[LinkedIn](https://www.linkedin.com/in/{{ site.author.linkedin }})** profile or get in touch directly via **[Email](mailto:{{ site.author.email }})**.
+Feel free to reach out by [email](mailto:{{ site.author.email }}) or connect on [LinkedIn](https://www.linkedin.com/in/{{ site.author.linkedin }}).
