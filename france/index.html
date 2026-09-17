@@ -791,7 +791,7 @@
       <div class="family-tribute">
         <div class="family-tribute-header">❤️ באהבה ענקית מכל המשפחה:</div>
         <div class="family-names-list">
-          <span class="family-tag">ארז 👑</span>
+          <span class="family-tag">סבא ארז 🚴‍♂️👑</span>
           <span class="family-tag">איריס 🌸</span>
           <span class="family-tag">ניצן 👏</span>
           <span class="family-tag">נועה ☀️</span>
@@ -2240,67 +2240,409 @@ function drawBirthdayCake(ctx, cake, scrollX) {
     }
   });
 
-  if (cake.celebrated) {
-    drawSabaErez(ctx, 0, -185);
-  }
-
   ctx.restore();
 }
 
-function drawSabaErez(ctx, x, y) {
+function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.save();
-  ctx.translate(x, y);
+  const bounceY = isCelebrated ? -Math.abs(Math.sin(Date.now() * 0.012)) * 6 : 0;
+  ctx.translate(x, y + bounceY);
 
-  // Saba Erez illustrated portrait on top of cake
-  ctx.fillStyle = '#fed7aa';
-  ctx.beginPath();
-  ctx.arc(0, 0, 26, 0, Math.PI * 2);
-  ctx.fill();
+  // 1. Festive Balloons tied to bicycle rack
+  const balloonBob = Math.sin(Date.now() * 0.005) * 4;
+  const balloonOffsets = [
+    { bx: -48, by: -105 + balloonBob, r: 11, col: '#ef4444' },
+    { bx: -36, by: -125 - balloonBob, r: 13, col: '#f59e0b', text: '70' },
+    { bx: -24, by: -110 + balloonBob * 0.7, r: 11, col: '#06b6d4' }
+  ];
 
-  ctx.fillStyle = '#e2e8f0';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+  ctx.lineWidth = 1.5;
+  balloonOffsets.forEach(b => {
+    ctx.beginPath();
+    ctx.moveTo(-28, -48);
+    ctx.quadraticCurveTo(-34, -75, b.bx, b.by + b.r);
+    ctx.stroke();
+  });
+
+  balloonOffsets.forEach(b => {
+    ctx.fillStyle = b.col;
+    ctx.beginPath();
+    ctx.ellipse(b.bx, b.by, b.r, b.r * 1.25, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.beginPath();
+    ctx.arc(b.bx - b.r * 0.35, b.by - b.r * 0.4, b.r * 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = b.col;
+    ctx.beginPath();
+    ctx.moveTo(b.bx - 2, b.by + b.r * 1.2);
+    ctx.lineTo(b.bx + 2, b.by + b.r * 1.2);
+    ctx.lineTo(b.bx, b.by + b.r * 1.2 + 3);
+    ctx.closePath();
+    ctx.fill();
+
+    if (b.text) {
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 9px Rubik, Fredoka, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(b.text, b.bx, b.by);
+    }
+  });
+
+  // 2. Cartoon Road / Hybrid Bicycle
+  const rearWx = -32;
+  const frontWx = 38;
+  const wheelR = 18;
+  const wheelY = -wheelR;
+
+  // Wheels
+  [rearWx, frontWx].forEach(wx => {
+    ctx.strokeStyle = '#1e293b';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(wx, wheelY, wheelR, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(wx, wheelY, wheelR - 2.5, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1;
+    for (let s = 0; s < 6; s++) {
+      const ang = (s * Math.PI) / 3;
+      ctx.beginPath();
+      ctx.moveTo(wx + Math.cos(ang) * (wheelR - 3), wheelY + Math.sin(ang) * (wheelR - 3));
+      ctx.lineTo(wx - Math.cos(ang) * (wheelR - 3), wheelY - Math.sin(ang) * (wheelR - 3));
+      ctx.stroke();
+    }
+
+    ctx.fillStyle = '#475569';
+    ctx.beginPath();
+    ctx.arc(wx, wheelY, 3, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Crankset / Pedals
+  const bbX = 3;
+  const bbY = -18;
+  ctx.fillStyle = '#64748b';
   ctx.beginPath();
-  ctx.arc(0, -6, 28, Math.PI * 0.85, Math.PI * 2.15);
+  ctx.arc(bbX, bbY, 5, 0, Math.PI * 2);
   ctx.fill();
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(bbX - 6, bbY - 4);
+  ctx.lineTo(bbX + 6, bbY + 4);
+  ctx.stroke();
+
+  // Bike Frame (Electric Cyan)
+  const seatJunctionX = -8;
+  const seatJunctionY = -42;
+  const headJunctionX = 26;
+  const headJunctionY = -45;
 
   ctx.strokeStyle = '#0284c7';
   ctx.lineWidth = 3.5;
-  ctx.strokeRect(-17, -7, 14, 11);
-  ctx.strokeRect(3, -7, 14, 11);
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
   ctx.beginPath();
-  ctx.moveTo(-3, -2);
-  ctx.lineTo(3, -2);
+  ctx.moveTo(rearWx, wheelY);
+  ctx.lineTo(bbX, bbY);
+  ctx.moveTo(rearWx, wheelY);
+  ctx.lineTo(seatJunctionX, seatJunctionY);
+  ctx.moveTo(bbX, bbY);
+  ctx.lineTo(seatJunctionX, seatJunctionY);
+  ctx.moveTo(bbX, bbY);
+  ctx.lineTo(headJunctionX, headJunctionY);
+  ctx.moveTo(seatJunctionX, seatJunctionY);
+  ctx.lineTo(headJunctionX, headJunctionY);
+  ctx.moveTo(headJunctionX, headJunctionY);
+  ctx.lineTo(frontWx, wheelY);
+  ctx.stroke();
+
+  // Seatpost & Saddle
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(seatJunctionX, seatJunctionY);
+  ctx.lineTo(seatJunctionX - 2, seatJunctionY - 7);
   ctx.stroke();
 
   ctx.fillStyle = '#0f172a';
   ctx.beginPath();
-  ctx.arc(-10, -2, 2.5, 0, Math.PI * 2);
-  ctx.arc(10, -2, 2.5, 0, Math.PI * 2);
+  ctx.roundRect(seatJunctionX - 11, seatJunctionY - 10, 18, 4.5, [2, 4, 3, 2]);
   ctx.fill();
 
-  ctx.strokeStyle = '#831843';
+  // Stem & Handlebars
+  ctx.strokeStyle = '#334155';
   ctx.lineWidth = 2.5;
   ctx.beginPath();
-  ctx.arc(0, 8, 9, 0.1, Math.PI - 0.1);
+  ctx.moveTo(headJunctionX, headJunctionY);
+  ctx.lineTo(headJunctionX + 1, headJunctionY - 9);
   ctx.stroke();
 
-  // Striped Birthday Party Hat
-  ctx.fillStyle = '#f59e0b';
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(-20, -24);
-  ctx.lineTo(0, -70);
-  ctx.lineTo(20, -24);
+  ctx.moveTo(headJunctionX - 4, headJunctionY - 9);
+  ctx.lineTo(headJunctionX + 7, headJunctionY - 9);
+  ctx.quadraticCurveTo(headJunctionX + 12, headJunctionY - 7, headJunctionX + 9, headJunctionY - 2);
+  ctx.stroke();
+
+  // Front Race Plate: "70"
+  ctx.fillStyle = '#fef08a';
+  ctx.strokeStyle = '#ca8a04';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.roundRect(headJunctionX + 1, headJunctionY - 6, 12, 10, 2);
   ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = '#1e293b';
+  ctx.font = 'bold 7px Rubik, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('70', headJunctionX + 7, headJunctionY - 1);
+
+  // 3. Saba Erez - Athletic Cyclist Body
+  const erezBodyX = 2;
+
+  // Athletic Legs & Red Cycling Shoes
+  ctx.fillStyle = '#fed7aa';
+  ctx.fillRect(erezBodyX - 12, -26, 6, 20);
   ctx.fillStyle = '#ef4444';
   ctx.beginPath();
-  ctx.arc(0, -71, 7, 0, Math.PI * 2);
+  ctx.roundRect(erezBodyX - 15, -7, 12, 7, [3, 4, 2, 2]);
+  ctx.fill();
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(erezBodyX - 15, -2, 12, 2);
+
+  ctx.fillStyle = '#fed7aa';
+  ctx.fillRect(erezBodyX + 4, -26, 6, 20);
+  ctx.fillStyle = '#ef4444';
+  ctx.beginPath();
+  ctx.roundRect(erezBodyX + 2, -7, 12, 7, [3, 4, 2, 2]);
+  ctx.fill();
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(erezBodyX + 2, -2, 12, 2);
+
+  // Cycling Shorts (Dark navy with cyan stripes)
+  ctx.fillStyle = '#1e293b';
+  ctx.beginPath();
+  ctx.roundRect(erezBodyX - 14, -48, 26, 23, [4, 4, 2, 2]);
+  ctx.fill();
+  ctx.fillStyle = '#06b6d4';
+  ctx.fillRect(erezBodyX - 13, -46, 2.5, 19);
+  ctx.fillRect(erezBodyX + 8.5, -46, 2.5, 19);
+
+  // Royal Blue Cycling Jersey with Gold/White Stripe & "70"
+  ctx.fillStyle = '#1d4ed8';
+  ctx.beginPath();
+  ctx.roundRect(erezBodyX - 15, -75, 28, 28, [7, 7, 3, 3]);
   ctx.fill();
 
-  const wave = Math.sin(Date.now() * 0.008) * 7;
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(erezBodyX - 15, -64, 28, 5);
+  ctx.fillStyle = '#f59e0b';
+  ctx.fillRect(erezBodyX - 15, -59, 28, 2.5);
+
+  ctx.fillStyle = '#1e293b';
+  ctx.font = '900 11px Rubik, Fredoka, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('70', erezBodyX - 1, -61.5);
+
+  ctx.fillStyle = '#e2e8f0';
+  ctx.fillRect(erezBodyX - 2, -76, 3, 6);
+
+  // Arms & Hands
+  if (isCelebrated) {
+    const armWave = Math.sin(Date.now() * 0.015) * 4;
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 6;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(erezBodyX - 13, -71);
+    ctx.lineTo(erezBodyX - 24, -86 + armWave);
+    ctx.lineTo(erezBodyX - 28, -100 + armWave);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(erezBodyX - 28, -102 + armWave, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.beginPath();
+    ctx.moveTo(erezBodyX + 13, -71);
+    ctx.lineTo(erezBodyX + 24, -86 - armWave);
+    ctx.lineTo(erezBodyX + 28, -100 - armWave);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(erezBodyX + 28, -102 - armWave, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    const wave = Math.sin(Date.now() * 0.008) * 8;
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 5.5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(erezBodyX - 12, -70);
+    ctx.lineTo(erezBodyX - 18, -55);
+    ctx.lineTo(headJunctionX + 4, headJunctionY - 9);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(headJunctionX + 4, headJunctionY - 9, 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.strokeStyle = '#1d4ed8';
+    ctx.lineWidth = 5.5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(erezBodyX + 12, -70);
+    ctx.lineTo(erezBodyX + 24, -82);
+    ctx.lineTo(erezBodyX + 26 + wave * 0.5, -96 + wave);
+    ctx.stroke();
+
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(erezBodyX + 27 + wave * 0.5, -98 + wave, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Neck
+  ctx.fillStyle = '#fed7aa';
+  ctx.fillRect(erezBodyX - 4, -82, 7, 8);
+
+  // Head
+  const headX = erezBodyX - 0.5;
+  const headY = -92;
   ctx.fillStyle = '#fed7aa';
   ctx.beginPath();
-  ctx.arc(-34, -10 + wave, 7, 0, Math.PI * 2);
-  ctx.arc(34, -10 - wave, 7, 0, Math.PI * 2);
+  ctx.arc(headX, headY, 13, 0, Math.PI * 2);
   ctx.fill();
+
+  // Rosy Cheeks
+  ctx.fillStyle = 'rgba(244, 63, 94, 0.28)';
+  ctx.beginPath();
+  ctx.arc(headX - 7, headY + 3, 3.5, 0, Math.PI * 2);
+  ctx.arc(headX + 7, headY + 3, 3.5, 0, Math.PI * 2);
+  ctx.fill();
+
+  // DARK BROWN / CHESTNUT HAIR (NOT WHITE!)
+  ctx.fillStyle = '#3f1d0b';
+  ctx.beginPath();
+  ctx.arc(headX, headY - 2, 14, Math.PI * 0.75, Math.PI * 2.25);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(headX - 6, headY - 11, 6, 0, Math.PI * 2);
+  ctx.arc(headX + 1, headY - 13, 6.5, 0, Math.PI * 2);
+  ctx.arc(headX + 7, headY - 10, 5.5, 0, Math.PI * 2);
+  ctx.arc(headX - 11, headY - 5, 4.5, 0, Math.PI * 2);
+  ctx.arc(headX + 11, headY - 5, 4.5, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Sports Sunglasses on forehead
+  ctx.fillStyle = '#0f172a';
+  ctx.beginPath();
+  ctx.roundRect(headX - 11, headY - 10, 10, 5, 2);
+  ctx.roundRect(headX + 1, headY - 10, 10, 5, 2);
+  ctx.fill();
+  ctx.fillStyle = '#06b6d4';
+  ctx.fillRect(headX - 9, headY - 9, 6, 2.5);
+  ctx.fillRect(headX + 3, headY - 9, 6, 2.5);
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(headX - 1, headY - 8);
+  ctx.lineTo(headX + 1, headY - 8);
+  ctx.stroke();
+
+  // Friendly eyes
+  ctx.fillStyle = '#1e293b';
+  ctx.beginPath();
+  ctx.arc(headX - 4.5, headY - 1, 2.2, 0, Math.PI * 2);
+  ctx.arc(headX + 4.5, headY - 1, 2.2, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(headX - 5.2, headY - 1.8, 0.9, 0, Math.PI * 2);
+  ctx.arc(headX + 3.8, headY - 1.8, 0.9, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Eyebrows
+  ctx.strokeStyle = '#3f1d0b';
+  ctx.lineWidth = 1.6;
+  ctx.beginPath();
+  ctx.moveTo(headX - 7.5, headY - 4.5);
+  ctx.lineTo(headX - 2, headY - 4.5);
+  ctx.moveTo(headX + 2, headY - 4.5);
+  ctx.lineTo(headX + 7.5, headY - 4.5);
+  ctx.stroke();
+
+  // Warm smile
+  ctx.strokeStyle = '#831843';
+  ctx.lineWidth = 2.2;
+  ctx.beginPath();
+  ctx.arc(headX, headY + 4.5, 5, 0.15, Math.PI - 0.15);
+  ctx.stroke();
+
+  if (isCelebrated) {
+    const crownX = headX;
+    const crownY = headY - 17;
+    ctx.fillStyle = '#facc15';
+    ctx.strokeStyle = '#ca8a04';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(crownX - 11, crownY + 4);
+    ctx.lineTo(crownX - 11, crownY - 6);
+    ctx.lineTo(crownX - 5.5, crownY);
+    ctx.lineTo(crownX, crownY - 9);
+    ctx.lineTo(crownX + 5.5, crownY);
+    ctx.lineTo(crownX + 11, crownY - 6);
+    ctx.lineTo(crownX + 11, crownY + 4);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#ef4444';
+    ctx.beginPath();
+    ctx.arc(crownX - 5.5, crownY + 1, 1.8, 0, Math.PI * 2);
+    ctx.arc(crownX + 5.5, crownY + 1, 1.8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#3b82f6';
+    ctx.beginPath();
+    ctx.arc(crownX, crownY - 3, 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    const cheerPulse = Math.sin(Date.now() * 0.01) * 3;
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 15px Rubik, Fredoka, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+    ctx.shadowBlur = 6;
+    ctx.fillText('👑 מזל טוב סבא ארז! 🚴‍♂️', headX, headY - 30 + cheerPulse);
+    ctx.shadowBlur = 0;
+  } else {
+    const floatT = Math.sin(Date.now() * 0.006) * 3;
+    ctx.fillStyle = '#fef08a';
+    ctx.font = 'bold 14px Rubik, Fredoka, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+    ctx.shadowBlur = 4;
+    ctx.fillText('סבא ארז 🚴‍♂️✨', headX, headY - 22 + floatT);
+    ctx.shadowBlur = 0;
+  }
 
   ctx.restore();
 }
@@ -2663,6 +3005,8 @@ function renderGame() {
 
     if (stageCake) {
       drawBirthdayCake(ctx, stageCake, levelScrollX);
+      const erezX = stageCake.x + 165 - levelScrollX;
+      drawSabaErez(ctx, erezX, GROUND_Y, stageCake.celebrated);
     }
   }
 
@@ -3004,9 +3348,9 @@ function buildStage(stageNum) {
         { w: 120, h: 35, y: GROUND_Y - 120, color: '#bae6fd' }
       ],
       candles: [
-        { x: 1370, y: GROUND_Y - 125, lit: true },
-        { x: 1410, y: GROUND_Y - 125, lit: true },
-        { x: 1450, y: GROUND_Y - 125, lit: true }
+        { x: 1320, y: GROUND_Y - 125, lit: true },
+        { x: 1350, y: GROUND_Y - 125, lit: true },
+        { x: 1380, y: GROUND_Y - 125, lit: true }
       ],
       celebrated: false
     };
@@ -3286,7 +3630,7 @@ window.addEventListener('mousedown', (e) => {
    ========================================================================== */
 
 const DEFAULT_SCORES = [
-  { name: 'סבא ארז 👑', char: 'ארז', score: 1420, date: '17/09' },
+  { name: 'סבא ארז 🚴‍♂️👑', char: 'ארז', score: 1420, date: '17/09' },
   { name: 'גאיה ⭐', char: 'גאיה', score: 1150, date: '17/09' },
   { name: 'תמר 🌟', char: 'תמר', score: 1080, date: '17/09' },
   { name: 'נטע 🎈', char: 'נטע', score: 990, date: '17/09' },
