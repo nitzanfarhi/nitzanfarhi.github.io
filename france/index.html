@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ההרפתקה הצרפתית של המשפחה 🇫🇷🎂 | יום הולדת 59 לסבא ארז</title>
+  <title>ההרפתקה הצרפתית של המשפחה 🇫🇷🎂 | יום הולדת 59 לארז</title>
   
   <!-- OpenGraph Metadata for WhatsApp / Social Sharing -->
   <meta property="og:title" content="ההרפתקה הצרפתית של המשפחה 🇫🇷🎂">
-  <meta property="og:description" content="משחק ריצה ופלטפורמה חגיגי ומתוק לכל המשפחה! שחקו עם גאיה, תמר ונטע בדרך לחגוג יום הולדת 59 לסבא ארז!">
+  <meta property="og:description" content="משחק ריצה ופלטפורמה חגיגי ומתוק לכל המשפחה! שחקו עם גאיה, תמר ונטע בדרך לחגוג יום הולדת 59 לארז!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nitzanfarhi.github.io/france/">
   <meta property="og:image" content="https://nitzanfarhi.github.io/france/app-icon.svg">
@@ -725,7 +725,7 @@
       <div class="game-logo">
         <div class="game-badge">צרפת 2026 🇫🇷 יום הולדת 59</div>
         <h1 class="game-title">ההרפתקה הצרפתית<br>של המשפחה</h1>
-        <p class="game-subtitle">מסע קסום מסנטר פארק ועד יום ההולדת של סבא ארז!</p>
+        <p class="game-subtitle">מסע קסום מסנטר פארק ועד יום ההולדת של ארז!</p>
       </div>
 
       <!-- Character Selection: Clean names only, perfectly visible -->
@@ -781,7 +781,7 @@
   <!-- VICTORY SCREEN -->
   <div class="screen-overlay hidden" id="victory-screen">
     <div class="victory-card">
-      <div class="victory-banner">🎉 מזל טוב סבא ארז לגיל 59! 🎂</div>
+      <div class="victory-banner">🎉 מזל טוב ארז לגיל 59! 🎂</div>
       
       <p style="font-size: 15px; font-weight: 700; color: #475569;">
         הגעתם למסיבת יום ההולדת 59 הגדולה! כל הכבוד! 🎈✨
@@ -791,7 +791,7 @@
       <div class="family-tribute">
         <div class="family-tribute-header">❤️ באהבה ענקית מכל המשפחה:</div>
         <div class="family-names-list">
-          <span class="family-tag">סבא ארז 🚴‍♂️👑</span>
+          <span class="family-tag">ארז 🚴‍♂️👑</span>
           <span class="family-tag">איריס 🌸</span>
           <span class="family-tag">ניצן 👏</span>
           <span class="family-tag">נועה ☀️</span>
@@ -955,7 +955,7 @@ const STAGES = {
   },
   STAGE_3: {
     id: 3,
-    name: "יום הולדת 59 לסבא ארז",
+    name: "יום הולדת 59 לארז",
     icon: "🎂",
     skyTop: "#1e1b4b",
     skyBottom: "#f472b6",
@@ -1608,100 +1608,332 @@ function drawStationCharacter(ctx, st, scrollX) {
 
   if (st.char === 'noa') {
     // --- NOA ☀️: Relaxing Poolside in Center Parc ---
-    // Parasol
-    ctx.strokeStyle = '#78350f';
-    ctx.lineWidth = 4;
+    // 1. Soft Ground Shadow
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.16)';
     ctx.beginPath();
-    ctx.moveTo(35, 10);
-    ctx.lineTo(35, -85);
-    ctx.stroke();
-
-    // Coral & yellow striped parasol
-    ctx.fillStyle = '#f43f5e';
-    ctx.beginPath();
-    ctx.arc(35, -85, 38, Math.PI, 0);
-    ctx.fill();
-    ctx.fillStyle = '#facc15';
-    ctx.beginPath();
-    ctx.arc(35, -85, 24, Math.PI, 0);
+    ctx.ellipse(-4, 0, 52, 9, 0, 0, Math.PI * 2);
     ctx.fill();
 
-    // Striped blue deck chair
-    ctx.strokeStyle = '#0284c7';
-    ctx.lineWidth = 6;
+    // 2. Chic Resort Parasol / Umbrella (Behind Lounger)
+    const ux = 34, uy = -92, ur = 42;
+    // Slanted umbrella pole
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 3.5;
     ctx.lineCap = 'round';
     ctx.beginPath();
-    ctx.moveTo(-35, 10);
-    ctx.lineTo(5, -6);
-    ctx.lineTo(25, -45);
+    ctx.moveTo(ux + 2, 0);
+    ctx.lineTo(ux, uy);
     ctx.stroke();
 
-    // Noa: Straw sun hat
+    // Parasol finial gold top
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.arc(ux, uy - 2, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Parasol canopy (Coral pink base)
+    ctx.fillStyle = '#f43f5e';
+    ctx.beginPath();
+    ctx.arc(ux, uy, ur, Math.PI, 0);
+    ctx.closePath();
+    ctx.fill();
+
+    // Sunny yellow panels
     ctx.fillStyle = '#fef08a';
     ctx.beginPath();
-    ctx.ellipse(12, -44, 28, 10, -0.15, 0, Math.PI * 2);
-    ctx.fill();
-    // Hat ribbon
-    ctx.fillStyle = '#f43f5e';
-    ctx.fillRect(-2, -48, 26, 4);
-
-    // Flowing wavy chestnut hair
-    ctx.fillStyle = '#78350f';
-    ctx.beginPath();
-    ctx.arc(12, -32, 14, 0, Math.PI * 2);
+    ctx.moveTo(ux - 25, uy);
+    ctx.quadraticCurveTo(ux - 16, uy - 35, ux, uy - ur);
+    ctx.quadraticCurveTo(ux - 6, uy - 30, ux - 9, uy);
+    ctx.closePath();
     ctx.fill();
 
-    // Face
-    ctx.fillStyle = '#fed7aa';
     ctx.beginPath();
-    ctx.arc(12, -32, 12, 0, Math.PI * 2);
+    ctx.moveTo(ux + 9, uy);
+    ctx.quadraticCurveTo(ux + 6, uy - 30, ux, uy - ur);
+    ctx.quadraticCurveTo(ux + 16, uy - 35, ux + 25, uy);
+    ctx.closePath();
     ctx.fill();
 
-    // Chic Sunglasses
-    ctx.fillStyle = '#0f172a';
-    ctx.beginPath();
-    ctx.arc(8, -34, 5, 0, Math.PI * 2);
-    ctx.arc(17, -33, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = '#0f172a';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(12, -34);
-    ctx.lineTo(13, -34);
-    ctx.stroke();
-    // White glare
+    // Scalloped white decorative lace trim
     ctx.fillStyle = '#ffffff';
-    ctx.beginPath();
-    ctx.arc(7, -35, 1.5, 0, Math.PI * 2);
-    ctx.arc(16, -34, 1.5, 0, Math.PI * 2);
-    ctx.fill();
+    for (let sc = -ur; sc < ur; sc += 14) {
+      ctx.beginPath();
+      ctx.arc(ux + sc + 7, uy, 4.5, 0, Math.PI);
+      ctx.fill();
+    }
 
-    // Warm smile
-    ctx.strokeStyle = '#831843';
-    ctx.lineWidth = 2;
+    // 3. Wooden Sun Lounger (Chaise Longue)
+    // Wood frame legs
+    ctx.strokeStyle = '#854d0e';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     ctx.beginPath();
-    ctx.arc(12, -26, 4, 0.2, Math.PI - 0.2);
+    ctx.moveTo(-36, -11);
+    ctx.lineTo(-36, 0);
+    ctx.moveTo(22, -11);
+    ctx.lineTo(22, 0);
+    ctx.moveTo(-7, -11);
+    ctx.lineTo(-7, 0);
     ctx.stroke();
 
-    // Yellow Sunscreen Tube in hand
-    ctx.fillStyle = '#facc15';
+    // Lounger frame
     ctx.beginPath();
-    ctx.roundRect(-16, -26, 10, 20, 3);
-    ctx.fill();
-    ctx.fillStyle = '#f97316';
-    ctx.fillRect(-15, -23, 8, 4);
+    ctx.moveTo(-44, -11);
+    ctx.lineTo(10, -11);
+    ctx.lineTo(31, -38);
+    ctx.stroke();
 
-    // Tropical drink table with straw
-    ctx.fillStyle = '#78350f';
-    ctx.fillRect(-38, -10, 16, 20);
-    ctx.fillStyle = '#06b6d4';
-    ctx.fillRect(-36, -20, 12, 10);
+    // Plush cyan resort cushion mattress with crisp white piping
+    ctx.strokeStyle = '#0284c7';
+    ctx.lineWidth = 7;
+    ctx.beginPath();
+    ctx.moveTo(-42, -14);
+    ctx.lineTo(10, -14);
+    ctx.lineTo(30, -40);
+    ctx.stroke();
+
+    ctx.strokeStyle = '#e0f2fe';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(-42, -14);
+    ctx.lineTo(10, -14);
+    ctx.lineTo(30, -40);
+    ctx.stroke();
+
+    // 4. Poolside Drink Table (At left)
+    ctx.fillStyle = '#a16207';
+    ctx.fillRect(-46, -14, 4, 14);
+    ctx.beginPath();
+    ctx.ellipse(-44, -14, 12, 3.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Tall glass with iced tropical smoothie
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.fillRect(-48, -26, 8, 12);
+    ctx.fillStyle = '#06b6d4'; // Refreshing tropical punch
+    ctx.fillRect(-47, -24, 6, 9.5);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.fillRect(-46, -22, 2.5, 2.5);
+    ctx.fillRect(-44, -19, 2.5, 2.5);
+    // Lemon wheel on glass rim
+    ctx.fillStyle = '#fde047';
+    ctx.beginPath();
+    ctx.arc(-48, -26, 3, 0, Math.PI * 2);
+    ctx.fill();
+    // Striped straw
+    ctx.strokeStyle = '#f43f5e';
+    ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(-45, -22);
+    ctx.lineTo(-42, -32);
+    ctx.stroke();
+
+    // 5. Noa's Seated Body & Outfit
+    const noaSkin = '#fed7aa';
+    const noaSkinOutline = '#9a3412';
+    const noaWave = Math.sin(Date.now() * 0.007) * 4;
+
+    // Legs resting comfortably on the cushion
+    ctx.fillStyle = noaSkin;
+    ctx.strokeStyle = noaSkinOutline;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.roundRect(-28, -20, 34, 7, [3, 2, 2, 3]);
+    ctx.fill();
+    ctx.stroke();
+
+    // Feet with coral resort sandals
+    ctx.fillStyle = '#f43f5e';
+    ctx.beginPath();
+    ctx.arc(-29, -16.5, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#facc15';
+    ctx.fillRect(-31, -18.5, 4, 2);
+
+    // Chic Coral Summer Resort Dress
+    ctx.fillStyle = '#f43f5e';
+    ctx.beginPath();
+    ctx.moveTo(3, -20);
+    ctx.lineTo(-12, -20);
+    ctx.lineTo(-2, -37);
+    ctx.lineTo(16, -37);
+    ctx.lineTo(18, -20);
+    ctx.closePath();
+    ctx.fill();
+
+    // Delicate white floral accents on dress
+    ctx.fillStyle = '#ffffff';
+    [-4, 4, 11].forEach((fx, i) => {
+      ctx.beginPath();
+      ctx.arc(fx, -28 + (i % 2) * 5, 2, 0, Math.PI * 2);
+      ctx.fill();
+    });
+
+    // Sundress shoulder straps
     ctx.strokeStyle = '#f43f5e';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(-30, -20);
-    ctx.lineTo(-24, -28);
+    ctx.moveTo(3, -37);
+    ctx.lineTo(5, -43);
+    ctx.moveTo(14, -37);
+    ctx.lineTo(13, -43);
     ctx.stroke();
+
+    // Graceful neck & golden necklace
+    ctx.fillStyle = noaSkin;
+    ctx.beginPath();
+    ctx.arc(9, -42, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#f59e0b';
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.arc(9, -41, 4, 0.2, Math.PI - 0.2);
+    ctx.stroke();
+
+    // Left Arm: Holding SPF 50 sunscreen bottle on lap
+    ctx.fillStyle = noaSkin;
+    ctx.beginPath();
+    ctx.roundRect(-10, -27, 13, 5.5, 2.5);
+    ctx.fill();
+    ctx.stroke();
+
+    // Sunscreen tube
+    ctx.fillStyle = '#facc15';
+    ctx.beginPath();
+    ctx.roundRect(-19, -33, 9.5, 16, [3, 3, 1, 1]);
+    ctx.fill();
+    ctx.fillStyle = '#f97316';
+    ctx.fillRect(-18, -31, 7.5, 3.5);
+    // Orange sun logo on tube
+    ctx.fillStyle = '#ea580c';
+    ctx.beginPath();
+    ctx.arc(-14.2, -24, 2.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Right Arm: Joyfully waving hello to the kids!
+    ctx.strokeStyle = noaSkin;
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(16, -40);
+    ctx.lineTo(24, -49);
+    ctx.lineTo(26 + noaWave * 0.4, -59 + noaWave);
+    ctx.stroke();
+
+    // Hand waving
+    ctx.fillStyle = noaSkin;
+    ctx.beginPath();
+    ctx.arc(26 + noaWave * 0.4, -61 + noaWave, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 6. Hair, Head & Face
+    const noaHeadX = 9;
+    const noaHeadY = -49;
+
+    // Flowing wavy chestnut hair behind and around head
+    ctx.fillStyle = '#5c2e14';
+    ctx.beginPath();
+    ctx.arc(noaHeadX, noaHeadY, 14, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(noaHeadX - 7, noaHeadY + 7, 6, 0, Math.PI * 2);
+    ctx.arc(noaHeadX + 8, noaHeadY + 7, 6, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Face
+    ctx.fillStyle = noaSkin;
+    ctx.beginPath();
+    ctx.arc(noaHeadX, noaHeadY, 11.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = noaSkinOutline;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
+
+    // Blushing rosy cheeks
+    ctx.fillStyle = 'rgba(244, 63, 94, 0.38)';
+    ctx.beginPath();
+    ctx.arc(noaHeadX - 5.5, noaHeadY + 2.5, 3.2, 0, Math.PI * 2);
+    ctx.arc(noaHeadX + 5.5, noaHeadY + 2.5, 3.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Elegant Oversized Designer Sunglasses
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(noaHeadX - 9, noaHeadY - 4, 8, 6.5, [3, 4, 2, 3]);
+    ctx.roundRect(noaHeadX + 1, noaHeadY - 4, 8, 6.5, [4, 3, 3, 2]);
+    ctx.fill();
+    // Sunglasses Bridge
+    ctx.strokeStyle = '#0f172a';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.moveTo(noaHeadX - 1.5, noaHeadY - 2);
+    ctx.lineTo(noaHeadX + 1.5, noaHeadY - 2);
+    ctx.stroke();
+
+    // Glossy glare reflection on lenses
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    ctx.beginPath();
+    ctx.moveTo(noaHeadX - 7, noaHeadY - 3);
+    ctx.lineTo(noaHeadX - 3, noaHeadY - 3);
+    ctx.lineTo(noaHeadX - 5, noaHeadY);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(noaHeadX + 3, noaHeadY - 3);
+    ctx.lineTo(noaHeadX + 7, noaHeadY - 3);
+    ctx.lineTo(noaHeadX + 5, noaHeadY);
+    ctx.closePath();
+    ctx.fill();
+
+    // Radiant lipstick smile & white teeth
+    ctx.strokeStyle = '#e11d48';
+    ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    ctx.arc(noaHeadX, noaHeadY + 4.8, 3.8, 0.2, Math.PI - 0.2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(noaHeadX, noaHeadY + 5, 2.5, 0.2, Math.PI - 0.2);
+    ctx.fill();
+
+    // 7. Chic French Woven Straw Sun Hat
+    const hatY = noaHeadY - 11;
+    // Hat brim
+    ctx.fillStyle = '#fde047';
+    ctx.beginPath();
+    ctx.ellipse(noaHeadX, hatY + 3, 24, 7, -0.05, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#ca8a04';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Hat crown
+    ctx.fillStyle = '#fef08a';
+    ctx.beginPath();
+    ctx.ellipse(noaHeadX, hatY - 1, 13, 7, 0, Math.PI, 0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Coral hatband ribbon
+    ctx.fillStyle = '#f43f5e';
+    ctx.beginPath();
+    ctx.ellipse(noaHeadX, hatY + 2, 13.5, 3.2, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Ribbon side bow & fluttering tails
+    const ribbonWave = Math.sin(Date.now() * 0.008) * 3;
+    ctx.beginPath();
+    ctx.arc(noaHeadX + 13, hatY + 2, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(noaHeadX + 13, hatY + 2);
+    ctx.quadraticCurveTo(noaHeadX + 18, hatY + 8, noaHeadX + 22 + ribbonWave, hatY + 14);
+    ctx.lineTo(noaHeadX + 19, hatY + 14);
+    ctx.quadraticCurveTo(noaHeadX + 15, hatY + 7, noaHeadX + 13, hatY + 2);
+    ctx.fill();
 
   } else if (st.char === 'nitzan') {
     // --- NITZAN 👏: Cheering & Clapping on the Forest Trail ---
@@ -2068,36 +2300,118 @@ function drawSpeechAvatar(charName) {
   const actx = c.getContext('2d');
   actx.clearRect(0, 0, 62, 62);
 
-  // Background
-  actx.fillStyle = '#fed7aa';
+  // Clean soft sky-blue gradient background (contrasts with all skin tones)
+  const bgGrad = actx.createLinearGradient(0, 0, 0, 62);
+  bgGrad.addColorStop(0, '#f0f9ff');
+  bgGrad.addColorStop(1, '#e0f2fe');
+  actx.fillStyle = bgGrad;
   actx.fillRect(0, 0, 62, 62);
 
   if (charName === 'noa') {
-    // Noa portrait with sunglasses & sun hat
-    actx.fillStyle = '#fef08a';
+    // Soft sunny resort background
+    const noaBg = actx.createRadialGradient(31, 31, 4, 31, 31, 31);
+    noaBg.addColorStop(0, '#fef9c3');
+    noaBg.addColorStop(1, '#bae6fd');
+    actx.fillStyle = noaBg;
+    actx.fillRect(0, 0, 62, 62);
+
+    // Coral sundress shoulders at bottom
+    actx.fillStyle = '#f43f5e';
     actx.beginPath();
-    actx.ellipse(31, 16, 26, 9, 0, 0, Math.PI * 2);
+    actx.roundRect(8, 48, 46, 16, [8, 8, 0, 0]);
     actx.fill();
-    // Hair
-    actx.fillStyle = '#78350f';
+    actx.fillStyle = '#ffffff';
     actx.beginPath();
-    actx.arc(31, 32, 16, 0, Math.PI * 2);
+    actx.arc(20, 54, 2, 0, Math.PI * 2);
+    actx.arc(42, 54, 2, 0, Math.PI * 2);
     actx.fill();
+
+    // Neck & golden necklace
+    actx.fillStyle = '#fed7aa';
+    actx.fillRect(27, 40, 8, 10);
+    actx.strokeStyle = '#f59e0b';
+    actx.lineWidth = 1.2;
+    actx.beginPath();
+    actx.arc(31, 44, 4, 0.1, Math.PI - 0.1);
+    actx.stroke();
+
+    // Flowing wavy chestnut hair
+    actx.fillStyle = '#5c2e14';
+    actx.beginPath();
+    actx.arc(31, 31, 16.5, 0, Math.PI * 2);
+    actx.fill();
+    actx.beginPath();
+    actx.arc(17, 41, 6.5, 0, Math.PI * 2);
+    actx.arc(45, 41, 6.5, 0, Math.PI * 2);
+    actx.fill();
+
     // Face
     actx.fillStyle = '#fed7aa';
     actx.beginPath();
     actx.arc(31, 32, 13, 0, Math.PI * 2);
     actx.fill();
-    // Sunglasses
+    actx.strokeStyle = '#b45309';
+    actx.lineWidth = 1;
+    actx.stroke();
+
+    // Rosy blushing cheeks
+    actx.fillStyle = 'rgba(244, 63, 94, 0.4)';
+    actx.beginPath();
+    actx.arc(23, 35, 3.2, 0, Math.PI * 2);
+    actx.arc(39, 35, 3.2, 0, Math.PI * 2);
+    actx.fill();
+
+    // Chic designer sunglasses
     actx.fillStyle = '#0f172a';
     actx.beginPath();
-    actx.arc(26, 30, 5, 0, Math.PI * 2);
-    actx.arc(36, 30, 5, 0, Math.PI * 2);
+    actx.roundRect(21, 26, 9.5, 7.5, [3, 4, 2, 3]);
+    actx.roundRect(31.5, 26, 9.5, 7.5, [4, 3, 3, 2]);
+    actx.fill();
+    actx.strokeStyle = '#0f172a';
+    actx.lineWidth = 1.8;
+    actx.beginPath();
+    actx.moveTo(29, 28);
+    actx.lineTo(33, 28);
+    actx.stroke();
+
+    // Sunglasses glossy reflection
+    actx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+    actx.beginPath();
+    actx.arc(24, 28.5, 1.8, 0, Math.PI * 2);
+    actx.arc(34.5, 28.5, 1.8, 0, Math.PI * 2);
+    actx.fill();
+
+    // Radiant smile with lipstick & white teeth
+    actx.fillStyle = '#e11d48';
+    actx.beginPath();
+    actx.arc(31, 38.5, 4.5, 0.1, Math.PI - 0.1);
+    actx.closePath();
     actx.fill();
     actx.fillStyle = '#ffffff';
+    actx.fillRect(29, 38.5, 4, 1.8);
+
+    // Wide French straw sun hat
+    actx.fillStyle = '#fde047';
     actx.beginPath();
-    actx.arc(25, 29, 1.5, 0, Math.PI * 2);
-    actx.arc(35, 29, 1.5, 0, Math.PI * 2);
+    actx.ellipse(31, 18, 26, 8, -0.04, 0, Math.PI * 2);
+    actx.fill();
+    actx.strokeStyle = '#ca8a04';
+    actx.lineWidth = 1;
+    actx.stroke();
+
+    // Hat crown
+    actx.fillStyle = '#fef08a';
+    actx.beginPath();
+    actx.ellipse(31, 14, 14, 7, 0, Math.PI, 0);
+    actx.closePath();
+    actx.fill();
+    actx.stroke();
+
+    // Coral hatband ribbon
+    actx.fillStyle = '#f43f5e';
+    actx.fillRect(17, 16, 28, 3.5);
+    actx.beginPath();
+    actx.arc(44, 18, 3, 0, Math.PI * 2);
     actx.fill();
 
   } else if (charName === 'nitzan') {
@@ -2697,9 +3011,9 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.textBaseline = 'middle';
   ctx.fillText('59', headJunctionX + 7, headJunctionY - 1);
 
-  // 3. Saba Erez - Athletic Cyclist Body (59 years young!)
+  // 3. Erez - Athletic Cyclist Body (59 years young!)
   const erezBodyX = 2;
-  const erezSkin = '#df9556'; // Warm healthy sun-kissed tan skin tone (NOT white!)
+  const erezSkin = '#f2be9b'; // Fresh, warm sun-kissed Caucasian cyclist tone (clear & bright!)
   const erezOutline = '#945327';
 
   // Athletic Legs & Red Cycling Shoes
@@ -2810,23 +3124,35 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   }
 
   // Neck
-  ctx.fillStyle = erezSkin;
+  ctx.fillStyle = '#db9b6f';
   ctx.fillRect(erezBodyX - 4, -82, 7, 8);
 
-  // Head
+  // Head coordinates
   const headX = erezBodyX - 0.5;
   const headY = -92;
 
-  // Warm sun-tanned face base
+  // 1. Chestnut hair drawn BEHIND the head
+  ctx.fillStyle = '#452213';
+  ctx.beginPath();
+  ctx.arc(headX, headY - 2, 15, Math.PI * 0.75, Math.PI * 2.25);
+  ctx.fill();
+  // Hair volume puffs on top
+  ctx.beginPath();
+  ctx.arc(headX - 6, headY - 12, 5.5, 0, Math.PI * 2);
+  ctx.arc(headX + 1, headY - 14, 6, 0, Math.PI * 2);
+  ctx.arc(headX + 7, headY - 11, 5, 0, Math.PI * 2);
+  ctx.fill();
+
+  // 2. Face Base - Fresh, healthy sun-tanned Caucasian skin (bright, clear & warm!)
   ctx.fillStyle = erezSkin;
   ctx.beginPath();
   ctx.arc(headX, headY, 13.5, 0, Math.PI * 2);
   ctx.fill();
   ctx.strokeStyle = erezOutline;
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 1.3;
   ctx.stroke();
 
-  // Ears
+  // 3. Ears
   [-13.5, 13.5].forEach(ex => {
     ctx.fillStyle = erezSkin;
     ctx.beginPath();
@@ -2835,74 +3161,127 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
     ctx.strokeStyle = erezOutline;
     ctx.lineWidth = 1;
     ctx.stroke();
+    // Inner ear detail
+    ctx.strokeStyle = 'rgba(148, 83, 39, 0.4)';
+    ctx.beginPath();
+    ctx.arc(headX + ex, headY, 1.5, 0, Math.PI * 2);
+    ctx.stroke();
   });
 
-  // Sun-bronzed healthy cheeks
-  ctx.fillStyle = 'rgba(217, 70, 38, 0.28)';
+  // 4. Stylish hair bangs / hairline across top of forehead (stops strictly at headY - 7, well above eyes!)
+  ctx.fillStyle = '#452213';
   ctx.beginPath();
-  ctx.arc(headX - 6.5, headY + 3, 3.5, 0, Math.PI * 2);
-  ctx.arc(headX + 6.5, headY + 3, 3.5, 0, Math.PI * 2);
-  ctx.fill();
-
-  // DARK BROWN / CHESTNUT HAIR (NOT WHITE!)
-  ctx.fillStyle = '#381e11';
-  ctx.beginPath();
-  ctx.arc(headX, headY - 3, 14, Math.PI * 0.8, Math.PI * 2.2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(headX - 6, headY - 11, 6, 0, Math.PI * 2);
-  ctx.arc(headX + 1, headY - 13, 6.5, 0, Math.PI * 2);
-  ctx.arc(headX + 7, headY - 10, 5.5, 0, Math.PI * 2);
-  ctx.arc(headX - 12, headY - 4, 4, 0, Math.PI * 2);
-  ctx.arc(headX + 12, headY - 4, 4, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Sports Sunglasses on forehead
-  ctx.fillStyle = '#0f172a';
-  ctx.beginPath();
-  ctx.roundRect(headX - 11, headY - 10, 10, 5, 2);
-  ctx.roundRect(headX + 1, headY - 10, 10, 5, 2);
-  ctx.fill();
-  ctx.fillStyle = '#06b6d4';
-  ctx.fillRect(headX - 9, headY - 9, 6, 2.5);
-  ctx.fillRect(headX + 3, headY - 9, 6, 2.5);
-  ctx.strokeStyle = '#0f172a';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(headX - 1, headY - 8);
-  ctx.lineTo(headX + 1, headY - 8);
-  ctx.stroke();
-
-  // Friendly eyes
-  ctx.fillStyle = '#1e293b';
-  ctx.beginPath();
-  ctx.arc(headX - 4.5, headY - 1, 2.2, 0, Math.PI * 2);
-  ctx.arc(headX + 4.5, headY - 1, 2.2, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(headX - 5.2, headY - 1.8, 0.9, 0, Math.PI * 2);
-  ctx.arc(headX + 3.8, headY - 1.8, 0.9, 0, Math.PI * 2);
-  ctx.fill();
-
-  // Eyebrows (Dark Brown)
-  ctx.strokeStyle = '#381e11';
-  ctx.lineWidth = 1.8;
-  ctx.beginPath();
-  ctx.moveTo(headX - 7.5, headY - 4.5);
-  ctx.lineTo(headX - 2, headY - 4.5);
-  ctx.moveTo(headX + 2, headY - 4.5);
-  ctx.lineTo(headX + 7.5, headY - 4.5);
-  ctx.stroke();
-
-  // Warm handsome smile with white teeth
-  ctx.fillStyle = '#ffffff';
-  ctx.beginPath();
-  ctx.arc(headX, headY + 4, 5, 0.1, Math.PI - 0.1);
+  ctx.moveTo(headX - 13, headY - 3);
+  ctx.quadraticCurveTo(headX - 9, headY - 7, headX - 5, headY - 7.5);
+  ctx.quadraticCurveTo(headX, headY - 8.5, headX + 5, headY - 7.5);
+  ctx.quadraticCurveTo(headX + 9, headY - 7, headX + 13, headY - 3);
+  ctx.quadraticCurveTo(headX + 12, headY - 14, headX, headY - 15);
+  ctx.quadraticCurveTo(headX - 12, headY - 14, headX - 13, headY - 3);
   ctx.closePath();
   ctx.fill();
-  ctx.strokeStyle = '#881337';
+
+  // Chestnut hair highlights
+  ctx.strokeStyle = '#78350f';
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.moveTo(headX - 6, headY - 12);
+  ctx.quadraticCurveTo(headX, headY - 14, headX + 6, headY - 12);
+  ctx.stroke();
+
+  // 5. Sports Sunglasses perched stylishly on hairline (headY - 13 to headY - 9)
+  ctx.fillStyle = '#0f172a';
+  ctx.beginPath();
+  ctx.roundRect(headX - 10.5, headY - 13, 9.5, 4.5, 2);
+  ctx.roundRect(headX + 1, headY - 13, 9.5, 4.5, 2);
+  ctx.fill();
+  ctx.fillStyle = '#06b6d4';
+  ctx.fillRect(headX - 9, headY - 12, 6.5, 2.5);
+  ctx.fillRect(headX + 2.5, headY - 12, 6.5, 2.5);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(headX - 7.5, headY - 12, 2, 1);
+  ctx.fillRect(headX + 4, headY - 12, 2, 1);
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  ctx.moveTo(headX - 1, headY - 11);
+  ctx.lineTo(headX + 1, headY - 11);
+  ctx.stroke();
+
+  // 6. Friendly, expressive eyebrows (Dark Brown, headY - 5)
+  ctx.strokeStyle = '#452213';
   ctx.lineWidth = 1.8;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(headX - 7.5, headY - 5);
+  ctx.quadraticCurveTo(headX - 4.5, headY - 6.2, headX - 1.8, headY - 4.8);
+  ctx.moveTo(headX + 1.8, headY - 4.8);
+  ctx.quadraticCurveTo(headX + 4.5, headY - 6.2, headX + 7.5, headY - 5);
+  ctx.stroke();
+
+  // 7. Expressive cartoon eyes (White sclera, warm pupils, bright sparkle gleam!)
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.ellipse(headX - 4.5, headY - 0.8, 3, 3.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(headX + 4.5, headY - 0.8, 3, 3.5, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#7c3f1d';
+  ctx.lineWidth = 0.8;
+  ctx.stroke();
+
+  // Warm dark pupils
+  ctx.fillStyle = '#1e293b';
+  ctx.beginPath();
+  ctx.arc(headX - 4.3, headY - 0.6, 1.9, 0, Math.PI * 2);
+  ctx.arc(headX + 4.3, headY - 0.6, 1.9, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Bright white eye sparkle highlights
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(headX - 5.1, headY - 1.6, 0.9, 0, Math.PI * 2);
+  ctx.arc(headX + 3.7, headY - 1.6, 0.9, 0, Math.PI * 2);
+  ctx.fill();
+
+  // 8. Sun-kissed glowing rosy cheeks
+  ctx.fillStyle = 'rgba(239, 68, 68, 0.32)';
+  ctx.beginPath();
+  ctx.ellipse(headX - 6.8, headY + 3.2, 3.2, 2.2, 0, 0, Math.PI * 2);
+  ctx.ellipse(headX + 6.8, headY + 3.2, 3.2, 2.2, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // 9. Cute nose
+  ctx.strokeStyle = '#ab5b2d';
+  ctx.lineWidth = 1.3;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.arc(headX, headY + 1.8, 1.8, 0.1, Math.PI * 0.9);
+  ctx.stroke();
+
+  // 10. Joyful birthday smile with white teeth
+  ctx.fillStyle = '#831843';
+  ctx.beginPath();
+  ctx.arc(headX, headY + 5.2, 5.2, 0.1, Math.PI - 0.1);
+  ctx.closePath();
+  ctx.fill();
+
+  // White teeth
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.rect(headX - 3.8, headY + 5.2, 7.6, 2.6);
+  ctx.fill();
+
+  // Smile outline & dimples
+  ctx.strokeStyle = '#5b152b';
+  ctx.lineWidth = 1.4;
+  ctx.beginPath();
+  ctx.arc(headX, headY + 5.2, 5.2, 0.1, Math.PI - 0.1);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(headX - 6.2, headY + 4.5);
+  ctx.lineTo(headX - 5.2, headY + 6.2);
+  ctx.moveTo(headX + 6.2, headY + 4.5);
+  ctx.lineTo(headX + 5.2, headY + 6.2);
   ctx.stroke();
 
   if (isCelebrated) {
@@ -2939,7 +3318,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
     ctx.textAlign = 'center';
     ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
     ctx.shadowBlur = 6;
-    ctx.fillText('👑 מזל טוב סבא ארז לגיל 59! 🚴‍♂️', headX, headY - 30 + cheerPulse);
+    ctx.fillText('👑 מזל טוב ארז לגיל 59! 🚴‍♂️', headX, headY - 30 + cheerPulse);
     ctx.shadowBlur = 0;
   } else {
     const floatT = Math.sin(Date.now() * 0.006) * 3;
@@ -2948,12 +3327,14 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
     ctx.textAlign = 'center';
     ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
     ctx.shadowBlur = 4;
-    ctx.fillText('סבא ארז 🚴‍♂️✨', headX, headY - 22 + floatT);
+    ctx.fillText('ארז 🚴‍♂️✨', headX, headY - 22 + floatT);
     ctx.shadowBlur = 0;
   }
 
   ctx.restore();
 }
+
+const drawErez = drawSabaErez;
 
 /* ==========================================================================
    UPDATE LOGIC & GAME LOOP
@@ -3439,7 +3820,7 @@ function renderGame() {
       if (stageTransition.toStage === 2) {
         ctx.fillText('ממשיכים במסע אל גגות פריז המרהיבים! 🗼🥐', VIRTUAL_WIDTH / 2, cardY + 120);
       } else {
-        ctx.fillText('מגיעים למסיבת יום הולדת 59 של סבא ארז! 🎂🎈', VIRTUAL_WIDTH / 2, cardY + 120);
+        ctx.fillText('מגיעים למסיבת יום הולדת 59 של ארז! 🎂🎈', VIRTUAL_WIDTH / 2, cardY + 120);
       }
 
       ctx.fillStyle = '#3b82f6';
@@ -3770,7 +4151,7 @@ function buildStage(stageNum) {
       char: 'michal',
       name: 'מיכל',
       avatar: '🌸',
-      quote: 'איזה כיף שהגעתם! כולם כבר כאן מתרגשים למסיבה של סבא ארז! 🌸🎂🎈',
+      quote: 'איזה כיף שהגעתם! כולם כבר כאן מתרגשים למסיבה של ארז! 🌸🎂🎈',
       rewardText: '+50 נקודות ⭐',
       rewardPoints: 50,
       rewardLife: 0,
@@ -4082,7 +4463,7 @@ window.addEventListener('mousedown', (e) => {
    ========================================================================== */
 
 const DEFAULT_SCORES = [
-  { name: 'סבא ארז 🚴‍♂️👑', char: 'ארז', score: 1420, date: '17/09' },
+  { name: 'ארז 🚴‍♂️👑', char: 'ארז', score: 1420, date: '17/09' },
   { name: 'גאיה ⭐', char: 'גאיה', score: 1150, date: '17/09' },
   { name: 'תמר 🌟', char: 'תמר', score: 1080, date: '17/09' },
   { name: 'נטע 🎈', char: 'נטע', score: 990, date: '17/09' },
