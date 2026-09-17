@@ -1,0 +1,26 @@
+{
+  "name": "WhatsApp Persona Engine",
+  "short_name": "Persona Engine",
+  "description": "Browser-native WebGPU PWA running client-side on consumer hardware: Hugging Face OPFS downloads, WhatsApp chat LoRA fine-tuning, and interactive chat arena.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
+  "background_color": "#fffbeb",
+  "theme_color": "#128C7E",
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["utilities", "productivity", "artificial intelligence"]
+}

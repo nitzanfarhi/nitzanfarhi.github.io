@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5E7E" />
+      <stop offset="100%" stop-color="#FFA07A" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="115" fill="url(#bg)"/>
+  
+  <!-- Eiffel Tower in background -->
+  <path d="M210,380 L235,260 L277,260 L302,380 L280,380 Q256,330 232,380 Z" fill="#ffffff" opacity="0.35"/>
+  <path d="M242,260 L248,150 L264,150 L270,260 Z" fill="#ffffff" opacity="0.4"/>
+  <path d="M253,150 L253,80 L259,80 L259,150 Z" fill="#ffffff" opacity="0.5"/>
+  
+  <!-- Birthday Cake in foreground -->
+  <rect x="146" y="310" width="220" height="70" rx="14" fill="#FFFFFF"/>
+  <rect x="176" y="250" width="160" height="65" rx="12" fill="#FCE7F3"/>
+  <rect x="211" y="200" width="90" height="55" rx="10" fill="#FEF08A"/>
+  
+  <!-- Candles -->
+  <rect x="230" y="170" width="8" height="30" rx="4" fill="#38BDF8"/>
+  <circle cx="234" cy="160" r="6" fill="#F59E0B"/>
+  
+  <rect x="252" y="165" width="8" height="35" rx="4" fill="#EC4899"/>
+  <circle cx="256" cy="153" r="7" fill="#F59E0B"/>
+  
+  <rect x="274" y="170" width="8" height="30" rx="4" fill="#10B981"/>
+  <circle cx="278" cy="160" r="6" fill="#F59E0B"/>
+  
+  <!-- Golden Stars & Croissant sparkle -->
+  <text x="70" y="160" font-size="64" fill="#FDE047">⭐</text>
+  <text x="380" y="180" font-size="64" fill="#FDE047">🥐</text>
+  <text x="256" y="450" font-family="'Rubik', sans-serif" font-weight="900" font-size="42" fill="#FFFFFF" text-anchor="middle">מזל טוב סבא!</text>
+</svg>
