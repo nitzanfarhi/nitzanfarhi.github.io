@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ההרפתקה הצרפתית של המשפחה 🇫🇷🎂 | יום הולדת 70 לסבא ארז</title>
+  <title>ההרפתקה הצרפתית של המשפחה 🇫🇷🎂 | יום הולדת 59 לסבא ארז</title>
   
   <!-- OpenGraph Metadata for WhatsApp / Social Sharing -->
   <meta property="og:title" content="ההרפתקה הצרפתית של המשפחה 🇫🇷🎂">
-  <meta property="og:description" content="משחק ריצה ופלטפורמה חגיגי ומתוק לכל המשפחה! שחקו עם גאיה, תמר ונטע בדרך לחגוג יום הולדת 70 לסבא ארז!">
+  <meta property="og:description" content="משחק ריצה ופלטפורמה חגיגי ומתוק לכל המשפחה! שחקו עם גאיה, תמר ונטע בדרך לחגוג יום הולדת 59 לסבא ארז!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nitzanfarhi.github.io/france/">
   <meta property="og:image" content="https://nitzanfarhi.github.io/france/app-icon.svg">
@@ -723,7 +723,7 @@
   <div class="screen-overlay" id="start-screen">
     <div class="start-card">
       <div class="game-logo">
-        <div class="game-badge">צרפת 2026 🇫🇷 יום הולדת 70</div>
+        <div class="game-badge">צרפת 2026 🇫🇷 יום הולדת 59</div>
         <h1 class="game-title">ההרפתקה הצרפתית<br>של המשפחה</h1>
         <p class="game-subtitle">מסע קסום מסנטר פארק ועד יום ההולדת של סבא ארז!</p>
       </div>
@@ -781,10 +781,10 @@
   <!-- VICTORY SCREEN -->
   <div class="screen-overlay hidden" id="victory-screen">
     <div class="victory-card">
-      <div class="victory-banner">🎉 מזל טוב סבא ארז! 🎂</div>
+      <div class="victory-banner">🎉 מזל טוב סבא ארז לגיל 59! 🎂</div>
       
       <p style="font-size: 15px; font-weight: 700; color: #475569;">
-        הגעתם למסיבת יום ההולדת הגדולה! כל הכבוד! 🎈✨
+        הגעתם למסיבת יום ההולדת 59 הגדולה! כל הכבוד! 🎈✨
       </p>
 
       <!-- Family Names Banner -->
@@ -812,7 +812,7 @@
         </div>
         <div class="score-item">
           <div class="score-item-label">תחנות עידוד</div>
-          <div class="score-item-value" id="vict-stations">5/5</div>
+          <div class="score-item-value" id="vict-stations">6/6</div>
         </div>
         <div class="score-item">
           <div class="score-item-label">בונוס יום הולדת</div>
@@ -925,6 +925,14 @@ let balloons = [];
 let particles = [];
 let confettiList = [];
 let fireworks = [];
+let finishGates = [];
+let stageTransition = {
+  active: false,
+  phase: 'idle',
+  progress: 0,
+  fromStage: 1,
+  toStage: 2
+};
 
 // Stage Definitions
 const STAGES = {
@@ -946,7 +954,7 @@ const STAGES = {
   },
   STAGE_3: {
     id: 3,
-    name: "יום ההולדת של סבא ארז",
+    name: "יום הולדת 59 לסבא ארז",
     icon: "🎂",
     skyTop: "#1e1b4b",
     skyBottom: "#f472b6",
@@ -1194,6 +1202,26 @@ class SoundEngine {
       gain.connect(this.ctx.destination);
       osc.start(now);
       osc.stop(now + 0.2);
+    } catch(e) {}
+  }
+
+  playStageClear() {
+    if (this.muted || !this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const notes = [392.00, 523.25, 659.25, 783.99, 1046.50];
+      notes.forEach((freq, i) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + i * 0.08);
+        gain.gain.setValueAtTime(0.24, now + i * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.08 + 0.35);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now + i * 0.08);
+        osc.stop(now + i * 0.08 + 0.4);
+      });
     } catch(e) {}
   }
 }
@@ -1950,6 +1978,80 @@ function drawStationCharacter(ctx, st, scrollX) {
     ctx.fillStyle = '#ec4899';
     ctx.font = '14px sans-serif';
     ctx.fillText('💖', 24, -45);
+
+  } else if (st.char === 'michal') {
+    // --- MICHAL 🌸: Birthday Party Welcoming Hostess ---
+    // Long wavy chestnut hair
+    ctx.fillStyle = '#451a03';
+    ctx.beginPath();
+    ctx.arc(0, -36, 17, Math.PI * 0.8, Math.PI * 2.2);
+    ctx.quadraticCurveTo(18, -18, 15, -4);
+    ctx.quadraticCurveTo(-18, -18, -15, -4);
+    ctx.fill();
+
+    // Pretty pink flower hair clip
+    ctx.fillStyle = '#f472b6';
+    ctx.beginPath();
+    ctx.arc(12, -44, 5.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#fef08a';
+    ctx.beginPath();
+    ctx.arc(12, -44, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Radiant face
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(0, -32, 13, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Warm friendly eyes & gleam
+    ctx.fillStyle = '#1e293b';
+    ctx.beginPath();
+    ctx.arc(-5, -34, 2.5, 0, Math.PI * 2);
+    ctx.arc(5, -34, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(-6, -35, 1, 0, Math.PI * 2);
+    ctx.arc(4, -35, 1, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Rosy cheeks
+    ctx.fillStyle = 'rgba(244, 63, 94, 0.35)';
+    ctx.beginPath();
+    ctx.arc(-7, -29, 3.5, 0, Math.PI * 2);
+    ctx.arc(7, -29, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Happy smile
+    ctx.strokeStyle = '#831843';
+    ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    ctx.arc(0, -26, 5, 0.15, Math.PI - 0.15);
+    ctx.stroke();
+
+    // Elegant party dress (Vibrant magenta & rose)
+    ctx.fillStyle = '#db2777';
+    ctx.beginPath();
+    ctx.roundRect(-14, -18, 28, 22, [6, 6, 2, 2]);
+    ctx.fill();
+    ctx.fillStyle = '#f472b6';
+    ctx.fillRect(-14, -10, 28, 3.5);
+
+    // Animated waving hands
+    const mWave = Math.sin(Date.now() * 0.012) * 5;
+    ctx.fillStyle = '#fed7aa';
+    ctx.beginPath();
+    ctx.arc(18, -22 + mWave, 4.5, 0, Math.PI * 2);
+    ctx.arc(-18, -20 - mWave, 4.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Floating blossoms & sparkles
+    ctx.fillStyle = '#ec4899';
+    ctx.font = '15px sans-serif';
+    ctx.fillText('🌸', -26, -38);
+    ctx.fillText('✨', 22, -42);
   }
 
   ctx.restore();
@@ -2079,6 +2181,42 @@ function drawSpeechAvatar(charName) {
     actx.arc(18, 48, 6, 0, Math.PI * 2);
     actx.arc(44, 48, 6, 0, Math.PI * 2);
     actx.fill();
+
+  } else if (charName === 'michal') {
+    // Michal portrait: chestnut hair with pink flower accessory & bright smile
+    actx.fillStyle = '#451a03';
+    actx.beginPath();
+    actx.arc(31, 30, 17, 0, Math.PI * 2);
+    actx.fill();
+    // Flower accessory
+    actx.fillStyle = '#f472b6';
+    actx.beginPath();
+    actx.arc(44, 20, 5, 0, Math.PI * 2);
+    actx.fill();
+    actx.fillStyle = '#fef08a';
+    actx.beginPath();
+    actx.arc(44, 20, 2.5, 0, Math.PI * 2);
+    actx.fill();
+    // Face
+    actx.fillStyle = '#fed7aa';
+    actx.beginPath();
+    actx.arc(31, 34, 13, 0, Math.PI * 2);
+    actx.fill();
+    actx.fillStyle = '#1e293b';
+    actx.beginPath();
+    actx.arc(26, 32, 2.5, 0, Math.PI * 2);
+    actx.arc(36, 32, 2.5, 0, Math.PI * 2);
+    actx.fill();
+    actx.strokeStyle = '#831843';
+    actx.lineWidth = 2;
+    actx.beginPath();
+    actx.arc(31, 38, 5, 0.2, Math.PI - 0.2);
+    actx.stroke();
+    actx.fillStyle = 'rgba(244, 63, 94, 0.4)';
+    actx.beginPath();
+    actx.arc(24, 35, 3, 0, Math.PI * 2);
+    actx.arc(38, 35, 3, 0, Math.PI * 2);
+    actx.fill();
   }
 }
 
@@ -2199,6 +2337,154 @@ function drawObstacle(ctx, obs, scrollX) {
   ctx.restore();
 }
 
+function drawFinishGate(ctx, gate, scrollX) {
+  const x = gate.x - scrollX;
+  if (x < -140 || x > VIRTUAL_WIDTH + 140) return;
+
+  const y = gate.y;
+  ctx.save();
+  ctx.translate(x, y);
+
+  if (gate.type === 'signpost') {
+    // --- STAGE 1 FINISH: Handcrafted French Trail Portal ---
+    // Planter box at base
+    ctx.fillStyle = '#78350f';
+    ctx.beginPath();
+    ctx.roundRect(-30, -14, 60, 14, [3, 3, 0, 0]);
+    ctx.fill();
+    ctx.fillStyle = '#16a34a';
+    ctx.beginPath();
+    ctx.arc(-18, -14, 7, 0, Math.PI * 2);
+    ctx.arc(0, -16, 9, 0, Math.PI * 2);
+    ctx.arc(18, -14, 7, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#f472b6';
+    ctx.beginPath();
+    ctx.arc(-14, -18, 3, 0, Math.PI * 2);
+    ctx.arc(14, -18, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#facc15';
+    ctx.beginPath();
+    ctx.arc(0, -22, 3.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Carved rustic wooden post
+    ctx.fillStyle = '#92400e';
+    ctx.beginPath();
+    ctx.roundRect(-7, -110, 14, 110, [5, 5, 0, 0]);
+    ctx.fill();
+    ctx.strokeStyle = '#78350f';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(-2, -100); ctx.lineTo(-2, -20);
+    ctx.moveTo(3, -90); ctx.lineTo(3, -30);
+    ctx.stroke();
+
+    // French Direction Arrow Sign: "PARIS 🗼 פריז"
+    ctx.fillStyle = '#fef3c7';
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(-52, -102);
+    ctx.lineTo(24, -102);
+    ctx.lineTo(48, -86);
+    ctx.lineTo(24, -70);
+    ctx.lineTo(-52, -70);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#1e293b';
+    ctx.font = 'bold 13px Rubik, Fredoka, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('פריז 🗼 ➡️', -4, -81);
+
+    // Lower sign: "🌲 סיום סנטר פארק ✨"
+    ctx.fillStyle = '#15803d';
+    ctx.strokeStyle = '#166534';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(-46, -58, 92, 22, 5);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 11px Rubik, Fredoka, sans-serif';
+    ctx.fillText('סיום שלב 1 ✨', 0, -43);
+
+    // French tricolor ribbon
+    ctx.fillStyle = '#1d4ed8'; ctx.fillRect(-6, -122, 4, 12);
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(-2, -122, 4, 12);
+    ctx.fillStyle = '#dc2626'; ctx.fillRect(2, -122, 4, 12);
+
+  } else if (gate.type === 'arch') {
+    // --- STAGE 2 FINISH: Grand Parisian Birthday Party Archway ---
+    [-50, 40].forEach(px => {
+      ctx.fillStyle = '#1e293b';
+      ctx.fillRect(px, -115, 12, 115);
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillRect(px - 3, -115, 18, 5);
+      ctx.fillRect(px - 2, -6, 16, 6);
+    });
+
+    // Decorative arch top
+    ctx.fillStyle = '#db2777';
+    ctx.beginPath();
+    ctx.roundRect(-64, -135, 130, 26, [8, 8, 3, 3]);
+    ctx.fill();
+    ctx.strokeStyle = '#fef08a';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 11.5px Rubik, Fredoka, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('🎂 למסיבת יום הולדת 59! 🎉', 1, -117);
+
+    // Sub-banner
+    ctx.fillStyle = '#4338ca';
+    ctx.beginPath();
+    ctx.roundRect(-42, -98, 86, 18, 4);
+    ctx.fill();
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 10px Rubik, sans-serif';
+    ctx.fillText('סיום שלב 2 ✨', 1, -85);
+
+    // Balloon clusters
+    const aBob = Math.sin(Date.now() * 0.007) * 4;
+    ctx.fillStyle = '#06b6d4';
+    ctx.beginPath();
+    ctx.arc(-55, -142 + aBob, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.arc(-45, -150 - aBob, 9, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#ef4444';
+    ctx.beginPath();
+    ctx.arc(45, -148 + aBob, 9, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#a855f7';
+    ctx.beginPath();
+    ctx.arc(55, -140 - aBob, 8, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+function startStageTransition(nextStage) {
+  if (stageTransition.active) return;
+  stageTransition.active = true;
+  stageTransition.phase = 'fade_out';
+  stageTransition.progress = 0;
+  stageTransition.fromStage = currentStage;
+  stageTransition.toStage = nextStage;
+
+  audio.playStageClear();
+  createSparkleBurst(player.x, player.y, '#f59e0b', 20);
+  createFloatingText(player.x, player.y - 45, 'סיום שלב! כל הכבוד! 🌟', '#f59e0b');
+}
+
 function drawBirthdayCake(ctx, cake, scrollX) {
   const cx = cake.x - scrollX;
   ctx.save();
@@ -2252,7 +2538,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   const balloonBob = Math.sin(Date.now() * 0.005) * 4;
   const balloonOffsets = [
     { bx: -48, by: -105 + balloonBob, r: 11, col: '#ef4444' },
-    { bx: -36, by: -125 - balloonBob, r: 13, col: '#f59e0b', text: '70' },
+    { bx: -36, by: -125 - balloonBob, r: 13, col: '#f59e0b', text: '59' },
     { bx: -24, by: -110 + balloonBob * 0.7, r: 11, col: '#06b6d4' }
   ];
 
@@ -2396,7 +2682,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.quadraticCurveTo(headJunctionX + 12, headJunctionY - 7, headJunctionX + 9, headJunctionY - 2);
   ctx.stroke();
 
-  // Front Race Plate: "70"
+  // Front Race Plate: "59"
   ctx.fillStyle = '#fef08a';
   ctx.strokeStyle = '#ca8a04';
   ctx.lineWidth = 1;
@@ -2408,7 +2694,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.font = 'bold 7px Rubik, sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('70', headJunctionX + 7, headJunctionY - 1);
+  ctx.fillText('59', headJunctionX + 7, headJunctionY - 1);
 
   // 3. Saba Erez - Athletic Cyclist Body
   const erezBodyX = 2;
@@ -2441,7 +2727,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.fillRect(erezBodyX - 13, -46, 2.5, 19);
   ctx.fillRect(erezBodyX + 8.5, -46, 2.5, 19);
 
-  // Royal Blue Cycling Jersey with Gold/White Stripe & "70"
+  // Royal Blue Cycling Jersey with Gold/White Stripe & "59"
   ctx.fillStyle = '#1d4ed8';
   ctx.beginPath();
   ctx.roundRect(erezBodyX - 15, -75, 28, 28, [7, 7, 3, 3]);
@@ -2456,7 +2742,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
   ctx.font = '900 11px Rubik, Fredoka, sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('70', erezBodyX - 1, -61.5);
+  ctx.fillText('59', erezBodyX - 1, -61.5);
 
   ctx.fillStyle = '#e2e8f0';
   ctx.fillRect(erezBodyX - 2, -76, 3, 6);
@@ -2631,7 +2917,7 @@ function drawSabaErez(ctx, x, y, isCelebrated = false) {
     ctx.textAlign = 'center';
     ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
     ctx.shadowBlur = 6;
-    ctx.fillText('👑 מזל טוב סבא ארז! 🚴‍♂️', headX, headY - 30 + cheerPulse);
+    ctx.fillText('👑 מזל טוב סבא ארז לגיל 59! 🚴‍♂️', headX, headY - 30 + cheerPulse);
     ctx.shadowBlur = 0;
   } else {
     const floatT = Math.sin(Date.now() * 0.006) * 3;
@@ -2869,12 +3155,35 @@ function updateGame(dt) {
   }
 
   const currentStData = STAGES[`STAGE_${currentStage}`] || STAGES.STAGE_1;
-  if (player.x > currentStData.length && currentStage < 3) {
-    currentStage++;
-    player.reset();
-    buildStage(currentStage);
-    updateHUD();
-    createFloatingText(player.x, player.y, `ברוכים הבאים ל${STAGES[`STAGE_${currentStage}`].name}! ✨`, '#3b82f6');
+
+  // Trigger smooth stage transition when player reaches the finish gate
+  if (player.x >= currentStData.length - 40 && currentStage < 3 && !stageTransition.active) {
+    startStageTransition(currentStage + 1);
+  }
+
+  // Smooth stage transition state machine
+  if (stageTransition.active) {
+    if (stageTransition.phase === 'fade_out') {
+      stageTransition.progress += 0.035;
+      player.vx = Math.max(1.2, player.vx * 0.94);
+      if (stageTransition.progress >= 1.0) {
+        stageTransition.progress = 1.0;
+        stageTransition.phase = 'fade_in';
+        currentStage = stageTransition.toStage;
+        player.reset();
+        buildStage(currentStage);
+        levelScrollX = player.x - 180;
+        updateHUD();
+      }
+    } else if (stageTransition.phase === 'fade_in') {
+      stageTransition.progress -= 0.028;
+      player.vx = 4.2;
+      if (stageTransition.progress <= 0) {
+        stageTransition.progress = 0;
+        stageTransition.active = false;
+        createFloatingText(player.x, player.y - 30, `ברוכים הבאים ל${STAGES[`STAGE_${currentStage}`].name}! ✨`, '#3b82f6');
+      }
+    }
   }
 
   for (let i = particles.length - 1; i >= 0; i--) {
@@ -2986,6 +3295,10 @@ function renderGame() {
     drawObstacle(ctx, obs, levelScrollX);
   });
 
+  finishGates.forEach(gate => {
+    drawFinishGate(ctx, gate, levelScrollX);
+  });
+
   if (currentStage === 3) {
     balloons.forEach(bal => {
       if (!bal.popped) {
@@ -3058,6 +3371,61 @@ function renderGame() {
     ctx.fillRect(-c.size / 2, -c.size / 2, c.size, c.size * 0.6);
     ctx.restore();
   });
+
+  // Smooth Stage Transition Overlay & Banner Card
+  if (stageTransition.active) {
+    ctx.save();
+    const alpha = Math.min(1, Math.max(0, stageTransition.progress));
+    ctx.fillStyle = `rgba(15, 23, 42, ${alpha * 0.88})`;
+    ctx.fillRect(0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+
+    if (alpha > 0.08) {
+      ctx.globalAlpha = Math.min(1, (alpha - 0.08) / 0.65);
+
+      const cardW = Math.min(480, VIRTUAL_WIDTH - 40);
+      const cardH = 190;
+      const cardX = (VIRTUAL_WIDTH - cardW) / 2;
+      const cardY = (VIRTUAL_HEIGHT - cardH) / 2;
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
+      ctx.beginPath();
+      ctx.roundRect(cardX, cardY, cardW, cardH, 24);
+      ctx.fill();
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 3.5;
+      ctx.stroke();
+
+      const nextSt = STAGES[`STAGE_${stageTransition.toStage}`];
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#b45309';
+      ctx.font = 'bold 15px Rubik, Fredoka, sans-serif';
+      ctx.fillText(`✨ שלב ${stageTransition.fromStage} הושלם בהצלחה! ✨`, VIRTUAL_WIDTH / 2, cardY + 38);
+
+      ctx.fillStyle = '#1e293b';
+      ctx.font = '900 24px Rubik, Fredoka, sans-serif';
+      ctx.fillText(`${nextSt.name} ${nextSt.icon}`, VIRTUAL_WIDTH / 2, cardY + 84);
+
+      ctx.fillStyle = '#475569';
+      ctx.font = '600 14px Rubik, Fredoka, sans-serif';
+      if (stageTransition.toStage === 2) {
+        ctx.fillText('ממשיכים במסע אל גגות פריז המרהיבים! 🗼🥐', VIRTUAL_WIDTH / 2, cardY + 120);
+      } else {
+        ctx.fillText('מגיעים למסיבת יום הולדת 59 של סבא ארז! 🎂🎈', VIRTUAL_WIDTH / 2, cardY + 120);
+      }
+
+      ctx.fillStyle = '#3b82f6';
+      ctx.font = 'bold 13px Rubik, Fredoka, sans-serif';
+      ctx.fillText('יוצאים לדרך... 🚀', VIRTUAL_WIDTH / 2, cardY + 155);
+
+      const sparkT = Date.now() * 0.006;
+      ctx.font = '18px sans-serif';
+      ctx.fillText('🌟', cardX + 28, cardY + 38 + Math.sin(sparkT) * 4);
+      ctx.fillText('🌟', cardX + cardW - 28, cardY + 38 - Math.sin(sparkT) * 4);
+      ctx.fillText('🎉', cardX + 32, cardY + cardH - 24);
+      ctx.fillText('🎉', cardX + cardW - 32, cardY + cardH - 24);
+    }
+    ctx.restore();
+  }
 }
 
 /* ==========================================================================
@@ -3147,6 +3515,7 @@ function buildStage(stageNum) {
   encouragementStations = [];
   obstacles = [];
   balloons = [];
+  finishGates = [];
   stageCake = null;
 
   if (stageNum === 1) {
@@ -3224,6 +3593,24 @@ function buildStage(stageNum) {
       collected: false,
       floatY: 0,
       opacity: 1
+    });
+
+    // Safety ground stretch past finish gate
+    platforms.push({
+      x: STAGES.STAGE_1.length - 200,
+      y: GROUND_Y,
+      w: 600,
+      h: 200,
+      type: 'forest_ground'
+    });
+
+    // Finish portal signpost
+    finishGates.push({
+      x: STAGES.STAGE_1.length - 50,
+      y: GROUND_Y,
+      type: 'signpost',
+      title: 'לפריז! 🗼 ➡️',
+      sub: 'סיום שלב 1 ✨'
     });
 
   } else if (stageNum === 2) {
@@ -3320,6 +3707,24 @@ function buildStage(stageNum) {
       opacity: 1
     });
 
+    // Safety rooftop stretch past finish gate
+    platforms.push({
+      x: STAGES.STAGE_2.length - 200,
+      y: GROUND_Y,
+      w: 600,
+      h: 200,
+      type: 'paris_roof'
+    });
+
+    // Finish archway leading to the birthday party
+    finishGates.push({
+      x: STAGES.STAGE_2.length - 50,
+      y: GROUND_Y,
+      type: 'arch',
+      title: 'למסיבת יום הולדת 59! 🎂🎉',
+      sub: 'סיום שלב 2 ✨'
+    });
+
   } else if (stageNum === 3) {
     platforms.push({
       x: 0,
@@ -3329,7 +3734,25 @@ function buildStage(stageNum) {
       type: 'ballroom_floor'
     });
 
+    // Michal welcoming the kids at the entrance of the party ballroom
+    encouragementStations.push({
+      x: 750,
+      y: GROUND_Y,
+      char: 'michal',
+      name: 'מיכל',
+      avatar: '🌸',
+      quote: 'איזה כיף שהגעתם! כולם כבר כאן מתרגשים למסיבה של סבא ארז! 🌸🎂🎈',
+      rewardText: '+50 נקודות ⭐',
+      rewardPoints: 50,
+      rewardLife: 0,
+      triggered: false,
+      collected: false,
+      floatY: 0,
+      opacity: 1
+    });
+
     for (let x = 250; x < 1200; x += 110) {
+      if (Math.abs(x - 750) < 70) continue; // Leave space for Michal
       balloons.push({
         x,
         y: GROUND_Y - 140 + Math.sin(x * 0.02) * 50,
@@ -3582,7 +4005,7 @@ function triggerVictory() {
   isVictory = true;
 
   document.getElementById('vict-coins').textContent = coinsCollected;
-  document.getElementById('vict-stations').textContent = `${stationsVisited}/5`;
+  document.getElementById('vict-stations').textContent = `${stationsVisited}/6`;
   document.getElementById('vict-total').textContent = gameScore;
 
   const storedName = localStorage.getItem('french_adventure_last_player') || '';
@@ -3598,7 +4021,7 @@ function restartGame() {
 
 function handleAction() {
   audio.init();
-  if (isPlaying) {
+  if (isPlaying && !stageTransition.active) {
     player.jump();
   }
 }

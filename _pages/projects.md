@@ -59,7 +59,7 @@ redirect_from:
         <a href="/france/" target="_blank">Family French Adventure — ההרפתקה הצרפתית של המשפחה</a>
       </h3>
       <p class="archive__item-excerpt" style="margin-bottom: 0.75em;">
-        A festive, warm cartoon platformer celebrating Saba Erez's 70th birthday trip with the family.
+        A festive, warm cartoon platformer celebrating Saba Erez's 59th birthday trip with the family.
       </p>
       <p style="margin-bottom: 0;">
         <a href="/france/" class="btn btn--primary" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i> Play Game</a>
