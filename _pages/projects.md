@@ -49,24 +49,6 @@ redirect_from:
   </article>
 </div>
 
-<div class="list__item" style="margin-bottom: 2em; padding: 1.25em; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
-  <article class="archive__item" style="display: flex; gap: 1.25em; align-items: flex-start;">
-    <a href="/france/" target="_blank" style="flex-shrink: 0;">
-      <img src="/france/app-icon.svg" alt="Family French Adventure Icon" style="width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); object-fit: cover; display: block;">
-    </a>
-    <div style="flex-grow: 1;">
-      <h3 class="archive__item-title" style="margin-top: 0; margin-bottom: 0.35em;">
-        <a href="/france/" target="_blank">Family French Adventure — ההרפתקה הצרפתית של המשפחה</a>
-      </h3>
-      <p class="archive__item-excerpt" style="margin-bottom: 0.75em;">
-        A festive, warm cartoon platformer celebrating Saba Erez's 59th birthday trip with the family.
-      </p>
-      <p style="margin-bottom: 0;">
-        <a href="/france/" class="btn btn--primary" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i> Play Game</a>
-      </p>
-    </div>
-  </article>
-</div>
 
 <div class="list__item" style="margin-bottom: 2em; padding: 1.25em; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
   <article class="archive__item" style="display: flex; gap: 1.25em; align-items: flex-start;">
