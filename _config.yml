@@ -156,6 +156,7 @@ include:
   - files
   - kids
   - glucose
+  - transformer-anatomy
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
