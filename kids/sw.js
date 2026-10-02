@@ -7,7 +7,7 @@
  * - Stale-While-Revalidate for app shell code (HTML/JS/CSS)
  */
 
-const CACHE_NAME = 'kids-learn-cache-v15';
+const CACHE_NAME = 'kids-learn-cache-v16';
 
 const PRECACHE_ASSETS = [
   './',
@@ -159,7 +159,32 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Strategy B: App Shell (HTML, JS, CSS) -> Stale-While-Revalidate
+  // Strategy B: HTML Navigation / Document requests -> Network-First (offline fallback)
+  if (
+    request.mode === 'navigate' ||
+    request.destination === 'document' ||
+    url.pathname.endsWith('.html') ||
+    url.pathname.endsWith('/') ||
+    url.pathname === '/kids' ||
+    url.pathname === '/kids/'
+  ) {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(request).then((res) => res || caches.match('./index.html') || caches.match('./')))
+    );
+    return;
+  }
+
+  // Strategy C: Other App Shell assets (Hashed JS, CSS) -> Stale-While-Revalidate
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       const fetchPromise = fetch(request)
