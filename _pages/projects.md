@@ -21,7 +21,7 @@ redirect_from:
         <a href="/kids/" target="_blank">Kids Learn &amp; Speak — למד לדבר</a>
       </h3>
       <p class="archive__item-excerpt" style="margin-bottom: 0.75em;">
-        A vocabulary flashcard app for toddlers in Hebrew and English. It uses speech synthesis for pronunciation and works offline.
+        A vocabulary flashcard and animal memory game app for toddlers in Hebrew and English. It uses speech synthesis for pronunciation and works offline.
       </p>
       <p style="margin-bottom: 0;">
         <a href="/kids/" class="btn btn--primary" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i> Open App</a>
