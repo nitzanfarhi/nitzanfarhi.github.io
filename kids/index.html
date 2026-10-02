@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/kids/app-icon.svg" />
     <link rel="apple-touch-icon" href="/kids/app-icon.svg" />
     <link rel="manifest" href="/kids/manifest.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#F59E0B" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,14 +13,54 @@
     <meta name="apple-mobile-web-app-title" content="Kids Learn" />
     <meta name="application-name" content="Kids Learn" />
     <title>Kids Learn & Speak - למד לדבר</title>
+    <!-- Prevent all gesture, pinch, and double-tap zoom on Safari iOS, Android, and Desktop -->
+    <script>
+      (function() {
+        // 1. Prevent Safari iOS gesture zoom (pinch/rotate)
+        document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
+        document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
+        document.addEventListener('gestureend', function(e) { e.preventDefault(); }, { passive: false });
+
+        // 2. Prevent multi-finger pinch-to-zoom on touch screens
+        document.addEventListener('touchmove', function(e) {
+          if (e.touches && e.touches.length > 1) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+
+        // 3. Prevent double-tap to zoom on mobile devices
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+          var now = Date.now();
+          if (now - lastTouchEnd <= 300) {
+            e.preventDefault();
+          }
+          lastTouchEnd = now;
+        }, false);
+
+        // 4. Prevent Ctrl+Wheel / trackpad pinch zoom on desktop
+        document.addEventListener('wheel', function(e) {
+          if (e.ctrlKey) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+
+        // 5. Prevent keyboard zoom shortcuts (Ctrl/Cmd + '+', '-', '0')
+        document.addEventListener('keydown', function(e) {
+          if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '0')) {
+            e.preventDefault();
+          }
+        });
+      })();
+    </script>
     <!-- Google Fonts for Friendly Hebrew & English Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Fredoka:wght@400;600;700&family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/kids/assets/index-CyydZA8w.js"></script>
-    <link rel="stylesheet" crossorigin href="/kids/assets/index-DScWvWX-.css">
+    <script type="module" crossorigin src="/kids/assets/index-DQ1kOjPH.js"></script>
+    <link rel="stylesheet" crossorigin href="/kids/assets/index-CDOBLap6.css">
   </head>
-  <body class="bg-amber-50 font-['Rubik','Fredoka',sans-serif] select-none touch-manipulation overflow-x-hidden antialiased">
+  <body class="bg-amber-50 font-['Rubik','Fredoka',sans-serif] select-none overscroll-none overflow-x-hidden antialiased">
         <a href="/" id="back-to-site-btn" style="position:fixed;top:10px;left:10px;z-index:99999;background:rgba(255,255,255,0.88);backdrop-filter:blur(6px);border:1px solid rgba(0,0,0,0.08);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;color:#334155;box-shadow:0 2px 6px rgba(0,0,0,0.08);display:inline-flex;align-items:center;gap:4px;font-family:sans-serif;" title="Return to Nitzan Farhi portfolio">‹ nitzanfarhi.github.io</a>
     <style>@media all and (display-mode: standalone) { #back-to-site-btn { display: none !important; } }</style>
     <div id="root"></div>

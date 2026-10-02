@@ -7,7 +7,7 @@
  * - Stale-While-Revalidate for app shell code (HTML/JS/CSS)
  */
 
-const CACHE_NAME = 'kids-learn-cache-v12';
+const CACHE_NAME = 'kids-learn-cache-v14';
 
 const PRECACHE_ASSETS = [
   './',
